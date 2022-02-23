@@ -18,6 +18,7 @@ import model.publication;
 import model.reclamation;
 import model.stream;
 import model.wallet;
+import services.ServiceAdmin;
 import services.ServiceChat;
 import services.ServiceEvent;
 import services.ServiceNews;
@@ -45,26 +46,28 @@ public class Pidev {
         // TODO code application logic here
         
        Connection cnx=maConnexion.getInstance().getCnx();
-       /*
+       
         //User
-        //User u1 = new User ("Ben nasr", "Fatma", 22, 22345678,"fatmanaser@gmail.com","rue sculpture nabeul","photo fatima")
-      User u2 = new User("Sebai", "Oussema", 23, 22587418,"oussema@gmail.com","rue jasmin tunis","photo oussema");
+      User u1 = new User ("Ben nasr", "Fatma", 22, 22345678,"fatmanaser@gmail.com","fatma_avatar","123","rue sculpture nabeul","photo fatima",1);
 
         //Service
         ServiceUser sp = new ServiceUser();
+        ServiceAdmin sa= new ServiceAdmin();
         
         //Ajouter
-        sp.ajouterUser(u2);
+      // sp.ajouterUser(u1);
+       
+        System.out.println(sa.Banned(u1));
         
         
         //Modifier
        // sp.modifierUser(new User(1,"Ezzine", "Fatma", 27, 22345678,"fatmaezzine@gmail.com","rue 14 janvier Hammamet","photo fatma"));
         
         //Afficher
-       // System.out.println(sp.afficherUsers());
+        System.out.println(sp.afficherUsers());
         
        
-     */
+     
      
                 /**************POSTS**********************/
         /*        

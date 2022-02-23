@@ -66,7 +66,7 @@ public class User {
     }
     
 
-    public User(String nom_user, String prenom_user, int age, int numero_tel, String email, String username , String password, String adresse, String photo) {
+    public User(String nom_user, String prenom_user, int age, int numero_tel, String email, String username , String password, String adresse, String photo , int statut_user) {
         this.nom_user = nom_user;
         this.prenom_user = prenom_user;
         this.age = age;
@@ -76,6 +76,7 @@ public class User {
         this.password=password;
         this.adresse = adresse;
         this.photo = photo;
+        this.statut_user = statut_user;
     }
 
     public User(int id_user, String nom_user, String prenom_user, int age, int numero_tel, String email, String username , String password, String adresse, String photo) {

@@ -9,6 +9,6 @@ package model;
  *
  * @author Fatma
  */
-public class Administrateur extends User{
+public class Admin extends User{
     
 }
