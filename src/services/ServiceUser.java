@@ -24,6 +24,7 @@ public class ServiceUser implements Iuser{
     
     Connection cnx = maConnexion.getInstance().getCnx();
 
+    
     @Override
     public void ajouterUser(User u) {
             String Req = "INSERT INTO `user`(`nom_user`, `prenom_user`, `age`, `numero_tel`, `email`, `adresse`, `photo`)"
@@ -56,7 +57,7 @@ public class ServiceUser implements Iuser{
             
             while (rs.next()) {                
                 users.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), 
-                rs.getInt(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getInt(10)));
+                rs.getInt(5),rs.getString(6),rs.getString(7),rs.getString(10),rs.getString(11),rs.getString(12),rs.getInt(13)));
             }
             
         } catch (SQLException ex) {
