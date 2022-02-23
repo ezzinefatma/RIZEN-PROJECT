@@ -43,7 +43,7 @@ public class Pidev {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
+        System.out.println("bonjouuurrrrrrrrrrr");
        Connection cnx=maConnexion.getInstance().getCnx();
        /*
         //User
