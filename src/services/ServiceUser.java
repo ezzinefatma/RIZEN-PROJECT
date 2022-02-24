@@ -25,10 +25,11 @@ public class ServiceUser implements Iuser{
     Connection cnx = maConnexion.getInstance().getCnx();
 
     
+    
     @Override
     public void ajouterUser(User u) {
-            String Req = "INSERT INTO `user`(`nom_user`, `prenom_user`, `age`, `numero_tel`, `email`, `adresse`, `photo`)"
-                    + "VALUES (?,?,?,?,?,?,?)";
+            String Req = "INSERT INTO `user`(`nom_user`, `prenom_user`, `age`, `numero_tel`, `email`,`username`,`password`, `adresse`, `photo`,`statut_user`)"
+                    + "VALUES (?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps = cnx.prepareStatement(Req);
             ps.setString(1,u.getNom_user());
@@ -36,8 +37,11 @@ public class ServiceUser implements Iuser{
             ps.setInt(3, u.getAge());
             ps.setInt(4, u.getNumero_tel());
             ps.setString(5, u.getEmail());
-            ps.setString(6, u.getAdresse());
-            ps.setString(7, u.getPhoto());
+            ps.setString(6, u.getUsername());
+            ps.setString(7, u.getPassword());
+            ps.setString(8, u.getAdresse());
+            ps.setString(9, u.getPhoto());
+            ps.setInt(10, u.getStatut());
             ps.execute();
             System.out.println("Utlisateur ajouté avec succés");
         } catch (SQLException ex) {
@@ -90,6 +94,8 @@ public class ServiceUser implements Iuser{
                         System.out.println(ex.getMessage());
             }
     }
+
+   
     
 }
     

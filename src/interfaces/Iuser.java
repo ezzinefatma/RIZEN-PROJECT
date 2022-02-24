@@ -23,6 +23,10 @@ public interface Iuser {
     //Update 
     public void modifierUser (User u);
     
+    //Login
+    
+   // public boolean login(String email,String password)throws Exception ;
+    
     
     
 }
