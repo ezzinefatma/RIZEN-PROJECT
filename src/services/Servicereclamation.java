@@ -45,7 +45,7 @@ public class Servicereclamation implements Irec {
     @Override
     public List<reclamation> afficherReclamation() {
         List<reclamation> reclamation = new ArrayList<>();
-        String Querryy = "SELECT nom_user FROM `user` where id_user = ? ";
+       // String Querryy = "SELECT nom_user FROM `user` where id_user = ? ";
         String query = "SELECT * FROM `reclamation`";
         
         try {

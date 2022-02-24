@@ -16,6 +16,7 @@ public class wallet {
    private int csc;
    private String expire;
    private int id_user;
+   private User User;
     
    //constructor 
 
@@ -96,6 +97,16 @@ public class wallet {
     public void setId_user(int id_user) {
         this.id_user = id_user;
     }
+
+    public User getUser() {
+        return User;
+    }
+
+    public void setUser(User User) {
+        this.User = User;
+    }
+    
+    
     //affichage 
 
     @Override
