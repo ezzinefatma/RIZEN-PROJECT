@@ -42,29 +42,35 @@ public class Pidev {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         // TODO code application logic here
         
        Connection cnx=maConnexion.getInstance().getCnx();
        
         //User
       User u1 = new User ("Ben nasr", "Fatma", 22, 22345678,"fatmanaser@gmail.com","fatma_avatar","123","rue sculpture nabeul","photo fatima",1);
+      User u2 = new User ("Ben nasr", "Ghada", 30, 22347178,"ghadanaser@gmail.com","ghada_avatar","123","rue jasmin tunis","photo ghada",0);
 
         //Service
         ServiceUser sp = new ServiceUser();
         ServiceAdmin sa= new ServiceAdmin();
         
         //Ajouter
-      // sp.ajouterUser(u1);
+      //sp.ajouterUser(u2);
        
         System.out.println(sa.Banned(u1));
+
+        System.out.println(sa.getUserByEmail("ghadanaser@gmail.com"));
+        System.out.println(sa.getUserByNom("Ben nasr"));
+        System.out.println(sa.getUserByStatut(1));
+        
         
         
         //Modifier
        // sp.modifierUser(new User(1,"Ezzine", "Fatma", 27, 22345678,"fatmaezzine@gmail.com","rue 14 janvier Hammamet","photo fatma"));
         
         //Afficher
-        System.out.println(sp.afficherUsers());
+       // System.out.println(sp.afficherUsers());
         
        
      

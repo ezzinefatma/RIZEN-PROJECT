@@ -99,6 +99,65 @@ public class ServiceAdmin implements Iadmin {
                         System.out.println(ex.getMessage());
             }
     }
+
+   
+    @Override
+    public User getUserByEmail(String email) throws SQLException{
+         String sql="SELECT * FROM user WHERE email='"+email+"'";
+        Statement statement = cnx.prepareStatement(sql);
+        ResultSet rs = statement.executeQuery(sql);
+        User u = new User();
+       while(rs.next()){
+                u.setId_user(rs.getInt("id_user"));
+                u.setNom_user(rs.getString("nom_user"));
+                u.setPrenom_user(rs.getString("prenom_user"));
+                u.setAge(rs.getInt("age"));
+                u.setNumero_tel(rs.getInt("numero_tel"));
+                u.setEmail(rs.getString("email"));
+                u.setAdresse(rs.getString("adresse"));
+                u.setPhoto(rs.getString("photo"));
+                u.setRole(rs.getString("role"));
+                
+                
+          
+            }
+       return u ; 
+        }
+
+    @Override
+    public List<User> getUserByNom(String nom_user) throws SQLException {
+          List<User> users = new ArrayList<>();
+         String sql="SELECT * FROM user WHERE nom_user='"+nom_user+"'";
+        Statement statement = cnx.prepareStatement(sql);
+        ResultSet rs = statement.executeQuery(sql);
+     
+       while(rs.next()){
+                users.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), 
+                rs.getInt(5),rs.getString(6),rs.getString(7),rs.getString(10),rs.getString(11),rs.getString(12),rs.getInt(13)));
+          
+            }
+       return users; 
+    }
+
+    @Override
+    public List<User> getUserByStatut(int statut_user) throws SQLException {
+        List<User> users = new ArrayList<>();
+         String sql="SELECT * FROM user WHERE statut_user='"+statut_user+"'";
+        Statement statement = cnx.prepareStatement(sql);
+        ResultSet rs = statement.executeQuery(sql);
+     
+       while(rs.next()){
+                users.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), 
+                rs.getInt(5),rs.getString(6),rs.getString(7),rs.getString(10),rs.getString(11),rs.getString(12),rs.getInt(13)));
+          
+            }
+       return users; 
+    }
     
     
-}
+      
+    }
+
+   
+    
+   
