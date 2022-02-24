@@ -16,6 +16,7 @@ public interface Iadmin extends Iuser{
     
     public boolean Banned(User u);
     public User getUserByEmail(String email)throws SQLException;
+    public User getUserByUsername(String username)throws SQLException;
     public List<User> getUserByNom(String nom_user)throws SQLException;
     public List<User> getUserByStatut(int statut_user)throws SQLException;
     

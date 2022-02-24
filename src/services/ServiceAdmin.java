@@ -28,11 +28,11 @@ public class ServiceAdmin implements Iadmin {
     @Override
     public boolean Banned(User u) {
          if(u.getStatut()==1) {
-             System.out.println("User Banned");
+             //System.out.println("User Banned");
              return true;
          }
          else {
-        System.out.println("User not Banned");
+        //System.out.println("User not Banned");
         return false;
          }
     }
@@ -128,6 +128,30 @@ public class ServiceAdmin implements Iadmin {
        
        return u ; 
         }
+    
+     @Override
+    public User getUserByUsername(String username) throws SQLException {
+        String sql="SELECT * FROM user WHERE username='"+username+"'";
+        Statement statement = cnx.prepareStatement(sql);
+        ResultSet rs = statement.executeQuery(sql);
+        User u = new User();
+       while(rs.next()){
+                u.setId_user(rs.getInt("id_user"));
+                u.setNom_user(rs.getString("nom_user"));
+                u.setPrenom_user(rs.getString("prenom_user"));
+                u.setAge(rs.getInt("age"));
+                u.setNumero_tel(rs.getInt("numero_tel"));
+                u.setEmail(rs.getString("email"));
+                u.setAdresse(rs.getString("adresse"));
+                u.setPhoto(rs.getString("photo"));
+                u.setRole(rs.getString("role"));
+           
+            }
+       
+       return u ; 
+        }
+    
+    
 
     @Override
     public List<User> getUserByNom(String nom_user) throws SQLException {
@@ -158,7 +182,8 @@ public class ServiceAdmin implements Iadmin {
             }
        return users; 
     }
-    
+
+   
     
       
     }
