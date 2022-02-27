@@ -8,31 +8,32 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="433.0" prefWidth="600.0" style="-fx-background-color: #03071e;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.LoginFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="470.0" prefWidth="660.0" style="-fx-background-color: #03071e;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.LoginFXMLController">
    <children>
-      <ImageView fitHeight="180.0" fitWidth="198.0" layoutX="205.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="222.0" fitWidth="225.0" layoutX="235.0" layoutY="-26.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/logo.png" />
          </image>
       </ImageView>
-      <JFXButton layoutX="517.0" layoutY="35.0" style="-fx-background-color: #7D8491;" text="Sign Up" textFill="#c0c5c1">
+      <JFXButton layoutX="577.0" layoutY="20.0" style="-fx-background-color: #7D8491;" text="Join US" textFill="#c0c5c1">
          <font>
             <Font size="14.0" />
          </font>
       </JFXButton>
-      <JFXTextField focusColor="WHITE" layoutX="195.0" layoutY="168.0" prefHeight="30.0" prefWidth="225.0" promptText="Email" style="-fx-prompt-text-fill: #a0a2ab; -fx-text-fill: #EAF0CE;" unFocusColor="#c0c5c1">
+      <JFXTextField focusColor="WHITE" layoutX="233.0" layoutY="273.0" prefHeight="30.0" prefWidth="225.0" promptText="Email" style="-fx-prompt-text-fill: #a0a2ab; -fx-text-fill: #EAF0CE;" unFocusColor="#c0c5c1">
          <font>
             <Font size="14.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="WHITE" layoutX="194.0" layoutY="232.0" prefHeight="30.0" prefWidth="225.0" promptText="Password " style="-fx-prompt-text-fill: #a0a2ab;" unFocusColor="#c0c5c1">
+      <JFXTextField focusColor="WHITE" layoutX="233.0" layoutY="324.0" prefHeight="30.0" prefWidth="225.0" promptText="Password " style="-fx-prompt-text-fill: #a0a2ab;" unFocusColor="#c0c5c1">
          <font>
             <Font size="14.0" />
          </font>
       </JFXTextField>
-      <ImageView fitHeight="30.0" fitWidth="27.0" layoutX="150.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: #;">
+      <ImageView fitHeight="37.0" fitWidth="33.0" layoutX="194.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: #;">
          <image>
             <Image url="@../images/gamer.png" />
          </image>
@@ -40,7 +41,27 @@
             <ColorAdjust brightness="1.0" />
          </effect>
       </ImageView>
-      <ImageView fitHeight="35.0" fitWidth="27.0" layoutX="150.0" layoutY="234.0" pickOnBounds="true" preserveRatio="true" style="-fx-image-color: #c0c5c1;">
+      <JFXCheckBox checkedColor="#405148" layoutX="195.0" layoutY="428.0" text="Remember me " textFill="#c0c5c1" unCheckedColor="#c0c5c1">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXCheckBox>
+      <JFXButton layoutX="233.0" layoutY="376.0" prefHeight="37.0" prefWidth="225.0" style="-fx-background-color: #7D8491;" text="Login" textFill="#c0c5c1">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="370.0" layoutY="423.0" text="Forgot password ? " textAlignment="CENTER" textFill="#c0c5c1" underline="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="439.0" layoutY="25.0" prefHeight="20.0" prefWidth="138.0" text="Not a member yet ?" textFill="#c0c5c1">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="37.0" fitWidth="33.0" layoutX="194.0" layoutY="323.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: #;">
          <image>
             <Image url="@../images/password.png" />
          </image>
@@ -48,25 +69,28 @@
             <ColorAdjust brightness="1.0" />
          </effect>
       </ImageView>
-      <JFXCheckBox checkedColor="#405148" layoutX="150.0" layoutY="295.0" text="Remember me " textFill="#c0c5c1" unCheckedColor="#c0c5c1">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </JFXCheckBox>
-      <JFXButton layoutX="345.0" layoutY="287.0" prefHeight="20.0" prefWidth="78.0" style="-fx-background-color: #7D8491;" text="Login" textFill="#c0c5c1">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </JFXButton>
-      <JFXButton layoutX="238.0" layoutY="355.0" text="Forgot password ? " textAlignment="CENTER" textFill="#c0c5c1" underline="true">
+      <JFXButton layoutX="233.0" layoutY="190.0" prefHeight="20.0" prefWidth="225.0" style="-fx-background-color: #15616d;" text="       Continue with Google" textAlignment="RIGHT" textFill="#c0c5c1">
          <font>
             <Font size="14.0" />
          </font>
       </JFXButton>
-      <Label layoutX="412.0" layoutY="40.0" prefHeight="20.0" prefWidth="102.0" text="New Member ?" textFill="#c0c5c1">
+      <JFXButton layoutX="233.0" layoutY="151.0" prefHeight="20.0" prefWidth="225.0" style="-fx-background-color: #15616d;" text="       Continue with Facebook" textAlignment="RIGHT" textFill="#c0c5c1">
          <font>
             <Font size="14.0" />
          </font>
-      </Label>
+      </JFXButton>
+      <ImageView fitHeight="30.0" fitWidth="33.0" layoutX="241.0" layoutY="151.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8-facebook-entouré-48.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="21.0" layoutX="246.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8-logo-google-48.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="338.0" layoutY="236.0" text="OR" textFill="#c0c5c1" />
+      <Line endX="-7.0" layoutX="334.0" layoutY="244.0" startX="-100.0" stroke="#c0c5c1" />
+      <Line endX="-7.0" layoutX="471.0" layoutY="244.0" startX="-100.0" stroke="#c0c5c1" />
    </children>
 </AnchorPane>
