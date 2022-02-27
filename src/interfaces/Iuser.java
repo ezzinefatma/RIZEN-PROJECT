@@ -16,17 +16,12 @@ public interface Iuser {
     
     //ADD
     public void  ajouterUser(User u);
-    
     //LIST 
     public List<User> afficherUsers();
-    
     //Update 
     public void modifierUser (User u);
-    
     //Login
-    
-   // public boolean login(String email,String password)throws Exception ;
-    
+   public boolean login(String email,String password)throws Exception ;
     
     
 }
