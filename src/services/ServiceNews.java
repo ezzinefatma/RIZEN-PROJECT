@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import model.User;
 import model.news;
 import util.maConnexion;
 
@@ -21,14 +22,21 @@ import util.maConnexion;
  */
 public class ServiceNews implements Inews{
       Connection cnx = maConnexion.getInstance().getCnx();
-      
+      public void recuperation(User u){
+          
+          
+      }
 
+      @Override
     public List<news> afficherNews() {
         List<news> news = new ArrayList<>();
+        
+        String Req = "select id_event from inscription_event WHERE id_usr=";
    String query = "SELECT * FROM news";
    try {
    Statement st = cnx.createStatement();
    ResultSet rs = st.executeQuery(query);
+   
    while (rs.next()){
    news.add(new news (rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDate(4)));
    }
@@ -63,6 +71,7 @@ public class ServiceNews implements Inews{
         }catch(SQLException e){
         System.out.println(e.getMessage());}
     }
+      @Override
     public void modifierNews(news n){
         try {
        String query ="UPDATE `news` SET `titre_news`='"+n.getTitre_news()+"',`contenu_news`='"+n.getContenu_news()+"' WHERE id_news="+n.getId_news();
