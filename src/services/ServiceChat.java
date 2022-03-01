@@ -104,7 +104,63 @@ try{
     
     }     
         }
+
+    /**
+     *
+     * @param n
+     * @return 
+     */
+    @Override
+    public List<chat> RechercherParUser_Name(String n) {
+          List<chat> chats = new ArrayList<>();
+          String query = "SELECT `id_comment`,`content`, `id_stream`, `report_nbr` FROM `chat` INNER JOIN USER ON user.id_user=chat.id_user where user.nom_user like '"+n+"'";
+
+         try {
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            
+              // int  nbrRow = rs.getRow();
+             
+                  while (rs.next()) {   
+                      
+                chats.add(new chat(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4)));
+            
+                  }
+                         
+            }catch(SQLException ex) {  ex.printStackTrace();
         }
+         
+              return chats;
+              
+    }
+
+    @Override
+    public List<chat> RechercherParId(int id) {
+     List<chat> chat_id = new ArrayList<>();
+          String query = "SELECT `content`, `id_user`, `id_stream`, `report_nbr` FROM `chat` WHERE id_comment="+id;
+        
+         try {
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(query);
+              // int  nbrRow = rs.getRow();
+             
+                  while (rs.next()) {   
+                      
+                chat_id.add(new chat(rs.getString(1), rs.getInt(2), rs.getInt(3), rs.getInt(4)));
+            
+                  }
+                         
+            }catch(SQLException ex) {
+        }
+         
+              return chat_id;
+ 
+    
+    }
+ 
+    
+
+}
     
     
     

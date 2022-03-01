@@ -5,7 +5,12 @@
  */
 package Pidev;
 
+import interfaces.Ichat;
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Locale;
 import model.Panier;
 import model.Produit;
 import model.Promotion;
@@ -15,8 +20,11 @@ import model.commentaire;
 import model.event;
 import model.news;
 import model.publication;
+import model.react_stream;
 import model.reclamation;
+import model.status_stream;
 import model.stream;
+import model.stream_category;
 import model.wallet;
 import services.ServiceChat;
 import services.ServiceEvent;
@@ -26,6 +34,7 @@ import services.ServiceProduit;
 import services.ServicePromotion;
 import services.ServiceStream;
 import services.ServiceUser;
+import services.ServiceUserHistory;
 import services.ServiceWallet;
 import services.Servicereclamation;
 import services.servicecommentaire;
@@ -149,49 +158,73 @@ public class Pidev {
       //sw.ajouterwallet(rr);
           //   sw.afficherwallet();
  */
+ 
+ 
+ 
   /**************stream**********************/
                      
   
   
   
-  //ServiceStream st = new ServiceStream();
+        ServiceStream st = new ServiceStream();
         
-       /* //streamer
-        stream s1 = new stream ("vinisus_fifa_22","esports",2530,0,"wwww.youtube.com/shroud",1);
-        stream s2 = new stream("ninja_pubg","fps",2530,60,"wwww.youtube.com/shroud",2);
+       //streams
+        stream s1 = new stream ("vinisus_fifa_22",stream_category.E_sport,2530,0,"wwww.youtube.com/shroud",1,status_stream.online,"link",react_stream.like);
+        stream s2 = new stream("ninja_pubg",stream_category.FPS,2530,60,"wwww.youtube.com/shroud",2,status_stream.online,"link",react_stream.like);
           
+        /*************recherche**********/
+         // by title
+        //System.out.println(st.RechercherParTitre("gg"));
+        // by id
+        //System.out.println(st.RechercherParId(9));
+        
         //ajouter first_methode
-          st.ajouterstream(s1);
+          //st.ajouterstream(s1);
         //ajouter 2 eme methode 
               //st.ajouterstream1(s2);
-        //Afficher
-            System.out.println(st.afficherstream());
+              //Afficher list stream
+           // System.out.println(st.afficherstream());
+              
+        //Afficher un stream
+           //st.afficher_un_stream(3);
         
         //Delete
-            //st.SupprimerParID(8);
+            //st.SupprimerParID(15);
         //Edit
         /*
-        stream s2modifier = new stream (5,"shroud_pubg","esports",2530,0,"wwww.youtube.com/shroud",2);
+        stream s2modifier = new stream (14,"error",stream_category.Strategy,2530,0,"wwww.youtube.com/shroud",2,status_stream.offline,"link",react_stream.like);
           st.ModifierStream(s2modifier);
-         ServiceChat ch = new ServiceChat();
+        */
+         
+        
+        /************* Recomanded List ************/
+
+        System.out.println(st.Recommended_list4());
+        //System.out.println(st.Recommended_list2());
+          //st.Recommended_list();
+      
+                // chat Service  : 
+        // ServiceChat ch = new ServiceChat();
           
          chat c1 = new chat ("good game",1,1,12520);
          chat c2 = new chat("bonjour ",2,2,18000); 
+         chat c2modifier = new chat (3,"shroud gg !!!",2,2,0);
+
          
-         */
-
-        // chat Service  : 
-/*
-
+         
+         //Ichat c3 = (Ichat) new chat("good game",1,1,12520);
+         //Ichat ch = new ServiceChat();
+         
+          
            //ADD_first_Method
-                ch.ajouterchat(c1);
+                //ch.ajouterchat(c1);
          //ADD_second_Method
-                ch.ajouterchat1(c2);
+               // ch.ajouterchat1(c2);
          //afficher chat
-             System.out.println(ch.afficherchat());
+               //System.out.println(ch.afficherchat());
           //Delete_chat
                         
-          
+                      /*
           
           System.out.println(ch.afficherchat());
           System.out.println("*********************");
@@ -199,28 +232,42 @@ public class Pidev {
           System.out.println("*********************");
 
           System.out.println(ch.afficherchat()); 
-          
+                       */
           
                                 
         //Edit_chat
-                                 
+                        /*          
         System.out.println(ch.afficherchat());
         System.out.println("*********************");
         
-        chat c2modifier = new chat (3,"shroud gg !!!",2,2,0);
+        
         
                ch.Modifierchat(c2modifier);   
              
         System.out.println("*********************");
         System.out.println(ch.afficherchat());
           
-    }          
-  
-  */
-  
+                        */
+        
+              //search by id / by Name
+              
+              
+         //  System.out.println(ch.RechercherParId(4));             
+           //  System.out.println(ch.RechercherParUser_Name("shroud"));           
+
+
+   // **************service history***************//
+   
+   
+        ServiceUserHistory his= new ServiceUserHistory();
+        
+        
+        //System.out.println(his.afficherhistory());    
+        //his.Supprimer_his_ParID(1);
+        //his.Supprimer_tous();
                                              
                                  
-         /***********************event*************/
+         /*******************event*************/
                                
       /*  ServiceEvent se = new ServiceEvent();
         ServiceNews sn = new ServiceNews();
@@ -239,6 +286,8 @@ public class Pidev {
         //sn.modifierNews(n2);
              */
  
+      
+      
     }
     
 }

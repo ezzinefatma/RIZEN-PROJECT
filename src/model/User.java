@@ -148,17 +148,12 @@ public class User {
     }
     
     
-    
     //ToString
 
     @Override
     public String toString() {
         return "User{" + "id_user=" + id_user + ", nom_user=" + nom_user + ", prenom_user=" + prenom_user + ", age=" + age + ", numero_tel=" + numero_tel + ", email=" + email + ", adresse=" + adresse + ", photo=" + photo + ", role=" + role + ", statut=" + statut_user + '}';
     }
-    
-    
-    
-     
-    
+   
     
 }

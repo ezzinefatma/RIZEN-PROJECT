@@ -12,27 +12,35 @@ public class stream {
     
        private    int       id_stream ;    
        private   String     titre_stream ;     
-       private   String     categorie   ;
+       private   stream_category     categorie   ;
        private   int     nbr_like   ; 
        private   int     nbr_report;  
        private   String     url   ;
        private   int     id_user;
-    
+       private   status_stream status;
+       private   String background_pic;
+       private   react_stream react;
+      
+       
     //Constructor
 
     public stream() {
     }
 
-    public stream(String titre_stream, String categorie, int nbr_like, int nbr_report, String url, int id_user) {
+    public stream(String titre_stream, stream_category categorie, int nbr_like, int nbr_report, String url, int id_user, status_stream status, String background_pic, react_stream react) {
         this.titre_stream = titre_stream;
         this.categorie = categorie;
         this.nbr_like = nbr_like;
         this.nbr_report = nbr_report;
         this.url = url;
         this.id_user = id_user;
+        this.status = status;
+        this.background_pic = background_pic;
+        this.react = react;
+       
     }
 
-    public stream(int id_stream, String titre_stream, String categorie, int nbr_like, int nbr_report, String url, int id_user) {
+    public stream(int id_stream, String titre_stream, stream_category categorie, int nbr_like, int nbr_report, String url, int id_user, status_stream status, String background_pic, react_stream react) {
         this.id_stream = id_stream;
         this.titre_stream = titre_stream;
         this.categorie = categorie;
@@ -40,7 +48,14 @@ public class stream {
         this.nbr_report = nbr_report;
         this.url = url;
         this.id_user = id_user;
+        this.status = status;
+        this.background_pic = background_pic;
+        this.react = react;
+        
     }
+
+  
+    
     //Getters
     
     public int getId_stream() {
@@ -51,9 +66,10 @@ public class stream {
         return titre_stream;
     }
 
-    public String getCategorie() {   
+    public stream_category getCategorie() {
         return categorie;
     }
+
 
     public int getNbr_like() {
         return nbr_like;
@@ -72,6 +88,21 @@ public class stream {
         return id_user;
     }
 
+    public status_stream getStatus() {
+        return status;
+    }
+
+    public String getBackground_pic() {
+        return background_pic;
+    }
+
+    public react_stream getReact() {
+        return react;
+    }
+
+    
+    
+    
     // Setters
 
     public void setId_stream(int id_stream) {
@@ -82,9 +113,11 @@ public class stream {
         this.titre_stream = titre_stream;
     }
 
-    public void setCategorie(String categorie) {
+    public void setCategorie(stream_category categorie) {
         this.categorie = categorie;
     }
+
+    
 
     public void setNbr_like(int nbr_like) {
         this.nbr_like = nbr_like;
@@ -101,15 +134,37 @@ public class stream {
     public void setId_user(int id_user) {
         this.id_user = id_user;
     }
+
+    public void setStatus(status_stream status) {
+        this.status = status;
+    }
+
+    public void setBackground_pic(String background_pic) {
+        this.background_pic = background_pic;
+    }
+
+    public void setReact(react_stream react) {
+        this.react = react;
+    }
+
     
-    
+
     
     //Affichage
     @Override
     public String toString() {
-        return "stream{"+ "id=" + id_stream + "\n"+", titre=" + titre_stream + "\n"+", categorie=" +categorie+ "\n"+", nbr_like =" +nbr_like+ "\n"+",nbr_report=" + nbr_report +"\n"+",url="+url+"\n"+",id_user="+id_user+ "\n"+"\n"+"*********************"+"\n"+'}';
+        return "stream{"+ "id=" + id_stream + "\n"+", titre=" 
+                        + titre_stream + "\n"+", categorie=" 
+                        +categorie+ "\n"+", nbr_like =" 
+                        +nbr_like+ "\n"+",nbr_report=" 
+                        + nbr_report +"\n"+",url="
+                        +url+"\n"+",id_user="
+                        +id_user+"\n"+",status="
+                        +status+"\n"+",background_pic="
+                        +background_pic+ "\n"+",react="
+                        +react+"\n"
+                        +"*********************"+"\n"+'}';
     }
-    
-    
+     
     
 }

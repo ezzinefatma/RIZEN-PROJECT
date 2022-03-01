@@ -20,6 +20,17 @@ public class chat {
     public chat() {
     }
 
+    public chat(int id_comment, String content, int id_stream, int report_nbr) {
+        this.id_comment = id_comment;
+        this.content = content;
+        this.id_stream = id_stream;
+        this.report_nbr = report_nbr;
+    }
+
+    
+
+    
+
     public chat(String content, int id_user, int id_stream, int report_nbr) {
         this.content = content;
         this.id_user = id_user;

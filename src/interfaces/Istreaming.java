@@ -16,13 +16,20 @@ public interface Istreaming {
     //Add
     public void ajouterstream(stream s);
     public void ajouterstream1(stream s);
-    
     //List
     public List<stream> afficherstream(); 
     //delete
     public void SupprimerParID(int id_stream);
     // Edit 
     public void ModifierStream (stream s);
+    //recommanded_list
+    public void Recommended_list();
+    //search by title
+    public List<stream> RechercherParTitre (String titre);
+    // search by id 
+    public List<stream> RechercherParId (int id);
+
+
 }
 
     

@@ -23,4 +23,10 @@ public interface Ichat {
     public void SupprimerParID_chat(int id_chat);
     // Edit 
     public void Modifierchat (chat c);
+    //search by title
+    public List<chat> RechercherParUser_Name (String n);
+    // search by id 
+    public List<chat> RechercherParId (int id);
+
+    
 }
