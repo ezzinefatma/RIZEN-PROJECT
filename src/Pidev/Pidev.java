@@ -5,11 +5,15 @@
  */
 package Pidev;
 
+import interfaces.ICoins;
+import interfaces.IWallet;
+import interfaces.Irec;
 import java.sql.Connection;
 import model.Coins_history;
 import model.Panier;
 import model.Produit;
 import model.Promotion;
+import model.ReqEnum;
 import model.User;
 import model.chat;
 import model.commentaire;
@@ -52,51 +56,58 @@ public class Pidev {
  /**************wallets & reclamations**********************/
  
         //Servicereclamation sr = new Servicereclamation();
-        coinService cs = new coinService ();
+        ICoins cs = new coinService ();
         ServiceWallet sw =new ServiceWallet();
-        Servicereclamation sr = new Servicereclamation();
+        coinService rb3c = new coinService();
         wallet r = new wallet ("6316951203258605",100,"20/11",1);
         wallet rr = new wallet ("6426951203258806",010,"10/12",2);
-        wallet rrr = new wallet ("7536951203258907",001,"03/01",3);
-        //sw.ajouterwallet(r);
-        //sw.ajouterwallet(rr);
-        //sw.ajouterwallet(rrr);
-        //reclamation rq = new reclamation("question","iwant to see my wallet history ",2);
-       // sr.ajouterReclamation(rq);
-       // sr.afficherReclamation();
-        /*
-       User us = new User("test","test",55,71589,"@@@@@@@@@","dfghjklm","dfghjklm");
-        ServiceUser sr = new ServiceUser();
+        //reclamation rabi3 =new reclamation(ReqEnum.en_cours, 3);
 
-        coinService cs = new coinService();
-        //cs.affichehystory(us);
-        cs.supresionHystory(3);*/
+     //sw.achatSolde(sw.afficherwallet().get(0),300000);
+    // sw.transfer_coins(sw.afficherwallet().get(0), sw.afficherwallet().get(2));
+      
+         //sw.afficherwallet();
+         //cs.affichehystory();
+        //sw.ajouterwallet(rabi3);
+           //sw.achatSolde(rabi3,300000);
+           //sw.achatSolde(rabi3,100000);
+           //sw.afficher_wallet_User(rabi3);
+           //sw.achatSolde(sw.afficherwallet().get(2),300000);
+
+           //sw.afficher_wallet_User(rrr);
+          // sw.transfer_coins(sw.afficherwallet().get(2), sw.afficherwallet().get(2));
+          //cs.filterhystory(3);
+         // cs.affichehystory();
+           
+        //Servicereclamation ic = new Servicereclamation();
+       // ic.afficherReclamation();
+      // ic.ajouterReclamation(rcc);
+        //ic.RechercherStat(ReqEnum.en_cours);
+        
+         //rb3c.filterhystory(3);
+
+     //sw.achat(rabi3,10000);
+     //sw.achat(rabi3,10000);
+    // sw.achat(rabi3,10000);
+     //sw.afficher_wallet_User(rabi3);
+     //sw.achat(r, 10000);
+     //sw.achat(rabi3,10000);
+     //sw.achat(rabi3,10000);
+     //sw.achatSolde(sw.afficherwallet().get(2),300000);//tziid
+        //System.out.println(rabi3.getSolde());
+     //sw.afficher_wallet_User(rabi3); 
+     //sw.achatSolde(sw.afficher_wallet_User(rabi3).get(0), 100000); //t3awedh
+     //wallet rabi3w = sw.afficher_wallet_User(rr);
+     
+      
+ 
+        
+       
+
+ 
         
      
-       // sw.achatSolde(r,10000);
-        //sw.afficher_wallet_User(r);
-        //cs.affichehystory();
-        //sw.achatSolde(r, 10000);
-        //sw.achatSolde(r, 300000);
-        //sw.achatSolde(sw.afficherwallet().get(0),10000);
-        
-        //sw.achatSolde(sw.afficherwallet().get(1),300000); 
-       // sw.achatSolde(sw.afficherwallet().get(2),100000); // 1000
-       // sw.achatSolde(sw.afficherwallet().get(0),300000); //5300
-       // sw.achatSolde(sw.afficherwallet().get(1),10000); //5100
-      /* sw.afficher_wallet_User(r);
-       sw.afficher_wallet_User(rr);
-       sw.afficher_wallet_User(rrr);*/
-       
-       //sw.achatSolde(sw.afficherwallet().get(2),100000); // 1000
-       sw.achatSolde(sw.afficherwallet().get(1),10000); //5100
-       //sw.achatSolde(sw.afficherwallet().get(0),10000); //5100
-       //sw.supresionwallet(1000);
-       //sw.RechercherrWallet(2);
-       cs.filterhystory(2);
-       
-     //  sw.afficher_wallet_User(r);
-        
+  
         
         
         

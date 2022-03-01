@@ -5,6 +5,7 @@
 package interfaces;
 
 import java.util.List;
+import model.ReqEnum;
 import model.reclamation;
 
 /**
@@ -20,9 +21,12 @@ public interface Irec {
      public List<reclamation> afficherReclamation();
         
     //modifier 
-        public void modifierUser_rec(reclamation r);
-       // public void modifieradmin_rec(reclamation r);
+        public void modifier_reclamation(reclamation r);
+        public void modifier_admin_rec(reclamation r);
+        public void modifier_user_rec(reclamation r);
         
     //supression
       public void supresionReclamation(int r);
+      //recherche par stt 
+      public void RechercherStat(ReqEnum x);
 }

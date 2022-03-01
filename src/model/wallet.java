@@ -111,7 +111,7 @@ public class wallet {
 
     @Override
     public String toString() {
-        return "wallet{" + "id_wallet=" + id_wallet + ", solde=" + solde + ", card_number=" + card_number + ", csc=" + csc + ", expire=" + expire + ", id_user=" + id_user + '}';
+        return "wallet{" + "id_wallet=" + id_wallet + ", solde=" + solde + ", card_number=" + card_number + ", csc=" + csc + ", expire=" + expire + ", id_user=" + id_user + '}'+"\n";
     }
     
     

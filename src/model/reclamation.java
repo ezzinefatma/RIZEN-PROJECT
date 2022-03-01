@@ -15,7 +15,7 @@ public class reclamation {
    private int id_rec;
    private String type_rec;
    private String description_rec;
-   private String statut_rec;
+   private ReqEnum statut_rec;
    private Timestamp date_rec;
    private int id_user;
 
@@ -23,7 +23,7 @@ public class reclamation {
    
        //constructor 
 
-    public reclamation(int id_rec, String type_rec, String description_rec, String statut_rec, Timestamp date_rec, int id_user) {
+    public reclamation(int id_rec, String type_rec, String description_rec, ReqEnum statut_rec, Timestamp date_rec, int id_user) {
         this.id_rec = id_rec;
         this.type_rec = type_rec;
         this.description_rec = description_rec;
@@ -32,7 +32,7 @@ public class reclamation {
         this.id_user = id_user;
     }
 
-    public reclamation(String type_rec, String description_rec, String statut_rec, int id_user) {
+    public reclamation(String type_rec, String description_rec, ReqEnum statut_rec, int id_user) {
         this.type_rec = type_rec;
         this.description_rec = description_rec;
         this.statut_rec = statut_rec;
@@ -44,6 +44,12 @@ public class reclamation {
         this.description_rec = description_rec;
         this.id_user = id_user;
     }
+
+    public reclamation(ReqEnum statut_rec, int id_user) {
+        this.statut_rec = statut_rec;
+        this.id_user = id_user;
+    }
+    
 
     public reclamation() {}
 
@@ -84,11 +90,11 @@ public class reclamation {
         this.date_rec = date_rec;
     }
 
-    public String getStatut_rec() {
+    public ReqEnum getStatut_rec() {
         return statut_rec;
     }
 
-    public void setStatut_rec(String statut_rec) {
+    public void setStatut_rec(ReqEnum statut_rec) {
         this.statut_rec = statut_rec;
     }
 

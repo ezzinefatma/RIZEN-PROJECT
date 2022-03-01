@@ -13,8 +13,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import model.Coins_history;
 import model.wallet;
+import model.User;
 
 /**
  *
@@ -90,10 +92,12 @@ public class ServiceWallet implements IWallet{
 
 // metier et services 
      //achat coins
+    
+    
      public int achatSolde(wallet x , int price )
      { 
        if (price == 10000){
-           int old = x.getSolde();
+           int old = x.getSolde(); 
              x.setSolde(old+100);
         try{
             String achat ="UPDATE `wallet` SET `solde`='"+x.getSolde()+"'WHERE `id_user` = '"+x.getId_user()+"'";
@@ -152,6 +156,7 @@ public class ServiceWallet implements IWallet{
        return x.getSolde(); }
  
      //affichage unitaire
+    @Override
          public List<wallet> afficher_wallet_User(wallet x) {
         List<wallet> wallets = new ArrayList<>();
         
@@ -170,43 +175,148 @@ public class ServiceWallet implements IWallet{
         } 
         return wallets;    }
          
-     //recherche
-         public  void testID(int x){
-        String queeery="SELECT * FROM `wallet` WHERE id_wallet ='"+x+"'"; 
+     //test existance + recherche
+    @Override
+     public void RechercherrWallet(int x) {
+      String queeery="SELECT * FROM `wallet` WHERE id_wallet ='"+x+"'"; 
+      
         try{
-           Statement st = cnx.createStatement();
+           Statement st = cnx.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
             ResultSet rss = st.executeQuery(queeery);
             rss.last();
             int nbrRow = rss.getRow();
-             if(nbrRow!=0){
-               System.out.println("Produit trouve");
-           }else{
-                System.out.println("Produit non trouve");
-               
-           }
-        }
-        catch (SQLException ex) {
-          ex.printStackTrace();        
-}
-        
-    }
-         
-             public List<wallet> RechercherrWallet(int x) {
-        List<wallet> wallets = new ArrayList<>();
-        
-        String query = "SELECT * FROM `wallet` WHERE id_wallet ='"+x+"'";
-        
+             if(nbrRow!=0)
+             {        List<wallet> wallets = new ArrayList<>();
+                 String query = "SELECT * FROM `wallet` WHERE id_wallet ='"+x+"'";
         try {
+            Statement stt = cnx.createStatement();
+            ResultSet rs = stt.executeQuery(query);
+            while (rs.next())                 
+            { wallets.add(new wallet(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4),rs.getString(5),rs.getInt(6)));}
+              System.out.println(wallets);}
+        catch (SQLException ex) 
+         {ex.printStackTrace();}}   
+             else
+               System.out.println("wallet n'existe pas............"); }
+                catch (SQLException ex) 
+               {ex.printStackTrace();}
+     
+            } 
+
+     
+     public void transfer_coins (wallet x, wallet y)
+     {
+    Scanner amount = new Scanner(System.in);
+    System.out.println("entrez le montant svp ...");
+    int fin = amount.nextInt();
+    System.out.println("MR "+x.getId_user()+" : vous etes entrain de transferer : "+fin+ " vers "+y.getId_user());
+     
+        if (fin < x.getSolde() && fin > 0)
+        {
+   int trans = y.getSolde();
+            y.setSolde(trans+fin);
+        int transmoins = x.getSolde();
+            x.setSolde(transmoins-fin);
+            try{
+            String transfert ="UPDATE `wallet` SET `solde`='"+y.getSolde()+"'WHERE `id_user` = '"+y.getId_user()+"'";
+            String transfe ="UPDATE `wallet` SET `solde`='"+x.getSolde()+"'WHERE `id_user` = '"+x.getId_user()+"'";
             Statement st = cnx.createStatement();
-            ResultSet rs = st.executeQuery(query);
-            while (rs.next()) {                
-                wallets.add(new wallet(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4),rs.getString(5),rs.getInt(6)));
-                
+            st.executeUpdate(transfert);
+            st.executeUpdate(transfe);
+            System.out.println("transfer effectué avec succée.....\nVotre solde est : "+x.getSolde());
+            /*****************************************************************************************/
+            String req ="INSERT INTO `historique_coins`( `id_user`, `transaction`) VALUES (?,?)";
+            PreparedStatement rs = cnx.prepareStatement(req);
+            rs.setInt(1, x.getId_user());
+            rs.setInt(2, fin);
+            rs.execute();
             }
-            System.out.println(wallets);
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        } 
-        return wallets;    }
-    
-}
+             catch(SQLException ex) {
+            ex.printStackTrace();}
+        }
+        else 
+             System.out.println("solde insuffisant.........");
+    }
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+          public int achat(wallet x , int price )
+     { 
+       if (price == 10000){
+      
+        try{
+        String queeery="SELECT `solde` FROM `wallet` WHERE id_user ='"+x.getId_user()+"'"; 
+           Statement stt = cnx.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
+            ResultSet rss = stt.executeQuery(queeery);
+           int old = x.getSolde();
+             x.setSolde(old+100);
+        
+            String achat ="UPDATE `wallet` SET `solde`='"+x.getSolde()+"'WHERE `id_user` = '"+x.getId_user()+"'";
+            Statement st = cnx.createStatement();
+            st.executeUpdate(achat);
+            System.out.println("achat du 100 Coins a été effectué avec succé...........\nVotre solde est :" +x.getSolde()); 
+            /**********************************************************/
+            String req ="INSERT INTO `historique_coins`( `id_user`, `montant_achat`) VALUES (?,?)";
+            PreparedStatement rs = cnx.prepareStatement(req);
+            rs.setInt(1, x.getId_user());
+            rs.setInt(2, x.getSolde());
+            rs.execute();
+        }
+        catch(SQLException ex) {
+            ex.printStackTrace();}
+        }
+       
+      else if (price == 100000){
+           int old = x.getSolde();
+            x.setSolde(old+1000);
+        try{
+            String achat ="UPDATE `wallet` SET `solde`='"+x.getSolde()+"'WHERE `id_user` = '"+x.getId_user()+"'";
+            Statement st = cnx.createStatement();
+            st.executeUpdate(achat);
+            System.out.println("achat du 1000 Coins a été effectué avec succé...........\nVotre solde est :" +x.getSolde());
+                    /**********************************************************/
+            String req ="INSERT INTO `historique_coins`( `id_user`, `montant_achat`) VALUES (?,?)";
+            PreparedStatement rs = cnx.prepareStatement(req);
+            rs.setInt(1, x.getId_user());
+            rs.setInt(2, x.getSolde());
+            rs.execute();}
+        catch(SQLException ex) {
+            ex.printStackTrace();}
+         }
+       
+      else if (price ==300000){
+           int old = x.getSolde();
+             x.setSolde(old+5000);
+        try{
+            String achat ="UPDATE `wallet` SET `solde`='"+x.getSolde()+"'WHERE `id_user` = '"+x.getId_user()+"'";
+            Statement st = cnx.createStatement();
+            st.executeUpdate(achat);
+            System.out.println("achat du 5000 Coins a été effectué avec succé...........\nVotre solde est :" +x.getSolde());
+                    /**********************************************************/
+            String req ="INSERT INTO `historique_coins`( `id_user`, `montant_achat`) VALUES (?,?)";
+            PreparedStatement rs = cnx.prepareStatement(req);
+            rs.setInt(1, x.getId_user());
+            rs.setInt(2, x.getSolde());
+            rs.execute();}
+        catch(SQLException ex) {
+            ex.printStackTrace();}
+         }
+       
+       else 
+          System.out.println("plz check ur wallet..........."); 
+       return x.getSolde(); }
+     
+     
+     }
+

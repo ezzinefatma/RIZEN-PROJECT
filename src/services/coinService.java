@@ -4,6 +4,7 @@
  */
 package services;
 
+import interfaces.ICoins;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,13 +21,14 @@ import util.maConnexion;
  *
  * @author HUNTER
  */
-public class coinService {
+public class coinService implements ICoins{
     
 
     //connexion db
     Connection cnx = maConnexion.getInstance().getCnx();
  //CRUD 
     
+    @Override
       public void affichehystory() {
         List<Coins_history> coins = new ArrayList<>();
         
@@ -44,6 +46,7 @@ public class coinService {
             ex.printStackTrace();
         } 
         }  
+    @Override
         public void supresionHystory(int x) {
        try (PreparedStatement psDel = cnx.prepareStatement("DELETE FROM `historique_coins` WHERE id_user =?")
 ) {
@@ -54,11 +57,11 @@ public class coinService {
     else
         System.out.println("Utilisateur n'existe pas.............");
 }       catch (SQLException ex) {
-          ex.printStackTrace();        
 }
     }
         
-              public void filterhystory(int x) {
+    @Override
+    public void filterhystory(int x) {
         List<Coins_history> coins = new ArrayList<>();
         
         String query = "SELECT * FROM historique_coins where id_user ='"+x+"'";
@@ -67,9 +70,7 @@ public class coinService {
             Statement st = cnx.createStatement();
             ResultSet rs = st.executeQuery(query);
             while (rs.next()) {                
-                coins.add(new Coins_history(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4),rs.getInt(5),rs.getTimestamp(6)));
-                
-            }
+                coins.add(new Coins_history(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4),rs.getInt(5),rs.getTimestamp(6)));}
             System.out.println(coins);
         } catch (SQLException ex) {
             ex.printStackTrace();

@@ -12,17 +12,26 @@ import model.wallet;
  * @author HUNTER
  */
 public interface IWallet {
-            //ajout 
+     //ajout 
     public void ajouterwallet(wallet x);
     
     //affichage 
      public List<wallet> afficherwallet();
         
     //modifier 
-        public void modifier_wallet(wallet x);
-       // public void modifier_wallet_user(wallet w);
+     public void modifier_wallet(wallet x);
         
     //supression
       public void supresionwallet(int x);
+    
+    // metier et services 
+     //achat coins  
+    // public int achatSolde(wallet x , int price );
+     
+    //affichage unitaire
+     public List<wallet> afficher_wallet_User(wallet x);
+     
+     //rechercher wallet
+     public void RechercherrWallet(int x); 
     
 }
