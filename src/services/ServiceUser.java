@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 import model.User;
 import static util.Pwd.getSHA;
 import static util.Pwd.toHexString;
-import util.maConnexion;
+import util.MaConnexion;
 
 /**
  *
@@ -27,13 +27,13 @@ import util.maConnexion;
  */
 public class ServiceUser implements Iuser{
     
-    Connection cnx = maConnexion.getInstance().getCnx();  
+    Connection cnx = MaConnexion.getInstance().getCnx();  
     
     @Override
     public boolean login(String email, String password) throws Exception {
          if (!email.isEmpty() && !password.isEmpty() ) {
             String requete = "SELECT password FROM user WHERE email = '" + email +"'";
-            Statement s = maConnexion.getInstance().getCnx().createStatement();
+            Statement s = MaConnexion.getInstance().getCnx().createStatement();
             ResultSet rs = s.executeQuery(requete);
                     if (rs.next()){
                        if( toHexString(getSHA(password)).equals(rs.getString("password")) )

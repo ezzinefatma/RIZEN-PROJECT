@@ -33,7 +33,8 @@ import services.servicecommentaire;
 import services.servicepublication;
 import static util.Pwd.getSHA;
 import static util.Pwd.toHexString;
-import util.maConnexion;
+import util.MaConnexion;
+import util.SendMail;
 
 /**
  *
@@ -46,9 +47,9 @@ public class Pidev {
      */
     public static void main(String[] args) throws Exception{
         // TODO code application logic here
-        
-       Connection cnx=maConnexion.getInstance().getCnx();
-       
+      
+       Connection cnx=MaConnexion.getInstance().getCnx();
+       //SendMail.send("oussamaesprit1@gmail.com",0);
         //User
       User u1 = new User ("Ben nasr", "Fatma", 22, 22345678,"fatmanaser@gmail.com","fatma_avatar","mypassword","rue sculpture nabeul","photo fatima",1);
       User u2 = new User ("Ben nasr", "Ghada", 30, 22347178,"ghadanaser@gmail.com","ghada_avatar","pwd123","rue jasmin tunis","photo ghada",0);
@@ -57,10 +58,11 @@ public class Pidev {
         ServiceUser sp = new ServiceUser();
         ServiceAdmin sa= new ServiceAdmin();
         
+     
         //Ajouter
      // sp.ajouterUser(u1);
     //  sp.ajouterUser(u2);
-        System.out.println("\n" + sa.Banned(u1));
+       /* System.out.println("\n" + sa.Banned(u1));
 
         System.out.println("************Get by Email************");
         System.out.println("\n" + sa.getUserByEmail("ghadanaser@gmail.com"));
@@ -85,7 +87,7 @@ public class Pidev {
        
        sa.login("ghadanaser@gmail.com","ps");
      
-     
+     */
                 /**************POSTS**********************/
         /*        
         //Service

@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import util.maConnexion;
+import util.MaConnexion;
 import interfaces.Ievent;
 import java.util.Date;
 import model.event;
@@ -21,7 +21,7 @@ import model.event;
  */
 public class ServiceEvent implements Ievent{
     
-   Connection cnx = maConnexion.getInstance().getCnx();
+   Connection cnx = MaConnexion.getInstance().getCnx();
    
    @Override
    public List<event> afficherEvent() {

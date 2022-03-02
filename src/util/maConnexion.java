@@ -13,7 +13,7 @@ import java.sql.SQLException;
  *
  * @author Fatma
  */
-public class maConnexion {
+public class MaConnexion {
      //DB
     final static String URL = "jdbc:mysql://127.0.0.1:3306/plateforme_gaming";
     final static String USERNAME = "root";
@@ -21,12 +21,12 @@ public class maConnexion {
     
     //var
     //Singleton : 1
-    static maConnexion instance = null;
+    static MaConnexion instance = null;
     private Connection cnx;
     
     //Constructeur
     //Singleton : 2 (private)
-    private maConnexion() {
+    private MaConnexion() {
         try {
             cnx = DriverManager.getConnection(URL, USERNAME, PWD);
             System.out.println("Connexion etablie avec succes");
@@ -40,9 +40,9 @@ public class maConnexion {
         return cnx;
     }
     //Singleton : 3
-    public static maConnexion getInstance() {
+    public static MaConnexion getInstance() {
         if (instance == null) {
-            instance = new maConnexion();
+            instance = new MaConnexion();
         }
         return instance;
     }

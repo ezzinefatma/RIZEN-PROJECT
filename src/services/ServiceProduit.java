@@ -14,14 +14,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import model.Produit;
-import util.maConnexion;
+import util.MaConnexion;
 
 /**
  *
  * @author MSI
  */
 public class ServiceProduit implements Iproduit {
- Connection cnx = maConnexion.getInstance().getCnx();
+ Connection cnx = MaConnexion.getInstance().getCnx();
 
     @Override
     public void ajouterproduit(Produit s) {
