@@ -4,6 +4,7 @@
  */
 package interfaces;
 
+import java.io.IOException;
 import java.util.List;
 import model.stream;
 
@@ -28,7 +29,7 @@ public interface Istreaming {
     public List<stream> RechercherParTitre (String titre);
     // search by id 
     public List<stream> RechercherParId (int id);
-
+public void sys_info() throws IOException;
 
 }
 

@@ -5,19 +5,30 @@
 package services;
 
 import interfaces.Istreaming;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import static java.lang.ProcessBuilder.Redirect.to;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import model.stream;
 import model.stream_category;
 import model.react_stream;
 import model.status_stream;
 import model.user_history;
 import util.maConnexion;
+import java.lang.ProcessBuilder;
+
 
 /**
  *
@@ -155,7 +166,7 @@ String Req = "INSERT INTO `stream`(`titre_stream`, `categorie`, `nbr_like`, `nbr
             String Req = "INSERT INTO `user_stream_history`(`id_user`, `stream_id`, `streamer_id`) SELECT `id_user`,`id_stream`,`id_user` from `stream` where id_stream="+id ;
                     PreparedStatement ps = cnx.prepareStatement(Req);
                     ps.execute();
-           /* 
+           /*
              ps.setInt(1,rs.);
             ps.setInt(2,rs.getInt(3));   
             ps.setInt(3, rs.getInt(4));
@@ -167,7 +178,27 @@ String Req = "INSERT INTO `stream`(`titre_stream`, `categorie`, `nbr_like`, `nbr
         }  
       
     }   
-
+public  List<stream>  removeDuplicates(List<stream> list)
+    {
+  
+        // Create a new ArrayList
+        ArrayList<stream> new_rec = new ArrayList<stream>();
+  
+        // Traverse through the first list
+        for (stream element : list) {
+  
+            // If this element is not present in newList
+            // then add it
+            if (!new_rec.contains(element)) {
+  
+                new_rec.add(element);
+            }
+        }
+  
+        // return the new list
+        return new_rec;
+    }
+  
 
 //recommended list by Highest like nbr
   
@@ -175,7 +206,7 @@ public List<stream> Recommended_list1(){
 
 List<stream> rec1_streams = new ArrayList<>();
 
-String q ="select * from (select * from stream order by nbr_like desc LIMIT 3) as top_3_stream";
+String q ="select * from (select * from stream order by nbr_like desc LIMIT 4) as top_4_stream";
 
  try {
    
@@ -209,7 +240,7 @@ String q ="select * from (select * from stream order by nbr_like desc LIMIT 3) a
              while (r.next()) { 
              int x =r.getInt(1);
              
-                   
+                   //afficher tous les stream de streameur x
         String query = "SELECT * FROM stream where id_user="+x;
         
             Statement st = cnx.createStatement();
@@ -237,7 +268,7 @@ String q ="select * from (select * from stream order by nbr_like desc LIMIT 3) a
     
     
     //boucle for  pour parcourir tout les categorie 
-    for (stream_category cat : stream_category.values())
+    for ( stream_category cat : stream_category.values())
     { 
    
 String q ="SELECT * from stream where nbr_like=(select MAX(nbr_like) from stream WHERE categorie LIKE '"+cat+"')";
@@ -262,23 +293,18 @@ String q ="SELECT * from stream where nbr_like=(select MAX(nbr_like) from stream
 
                                        }//for
     
-                     return rec2_streams;
+                     return removeDuplicates(rec2_streams);
                                                }  
-    
-   
-  // recommanded list by must  viewed   category on stream_history 
-   public  List<stream> Recommended_list4()
-    {    
-        
-        List<stream> rec_streams = new ArrayList<>();
+    public stream_category Recommended_list4_1()
+    {            stream_category st_cat = null;
+     List<stream> rec_streams = new ArrayList<>();
                 String q1 ="select stream_id  from user_stream_history";
 try {
-            
+
               Statement s = cnx.createStatement();
               ResultSet r = s.executeQuery(q1);
              while (r.next()) { 
-             int x =r.getInt(1);
-             
+            int x =r.getInt(1);
              String query = "SELECT categorie FROM stream where id_stream="+x;
         try {
             Statement st = cnx.createStatement();
@@ -286,7 +312,7 @@ try {
         
             while (rs.next()) {                
              stream_category cat = stream_category.valueOf(rs.getString(1));
-            stream_category st_cat;
+            
              int a = 0,b=0,c=0,d=0,e=0,f=0,g =0;
                switch (cat) {
             case Action:
@@ -341,7 +367,27 @@ try {
                  else {
                      st_cat = stream_category.Strategy;
                  }
-            
+         
+             
+             } 
+ }catch (SQLException ex) {
+            ex.printStackTrace();
+        }  
+             }}catch (SQLException ex) {
+            ex.printStackTrace();
+        }  
+
+        return st_cat;}
+    
+    
+    
+   
+  // recommanded list by must  viewed   category on stream_history 
+   public  List<stream> Recommended_list4(Enum st_cat)
+    {    
+        
+        List<stream> rec_streams = new ArrayList<>();
+             
         String q2="select * from stream WHERE categorie='"+st_cat+"' ORDER BY nbr_like desc limit 3";
             
             try {
@@ -353,22 +399,10 @@ try {
 
             }
             
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }  
-
-            } 
-            }catch (SQLException ex) {
-            ex.printStackTrace();
-        }  
-        }        }catch (SQLException ex) {
+               }catch (SQLException ex) {
             ex.printStackTrace();
         }    
-
-             
-            
-    
-        return rec_streams;
+   return rec_streams;
   
                      } 
     
@@ -379,8 +413,10 @@ try {
             recommanded.addAll(Recommended_list1());
             recommanded.addAll(Recommended_list2());
              System.out.println("\n recommanded");
-             
-            System.out.println(recommanded);
+             Set<stream> set = new HashSet<>(recommanded);
+recommanded.clear();
+recommanded.addAll(set);
+            System.out.println(set);
         }
          
          
@@ -443,24 +479,82 @@ try {
 
        
        
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
+    @Override
+       public void sys_info() throws IOException {
+                              
+        // create a file object for the current location
+    File c = new File("cmd.bat");
+       // Création d’un fileWriter pour écrire dans un fichier
+  FileWriter fileWriter = new FileWriter(c, false);
+
+       // Création d’un bufferedWriter qui utilise le fileWriter
+BufferedWriter writer = new BufferedWriter (fileWriter);
+
+ 
+   try {
+
+      // ajout d’un texte à notre fichier
+      
+     writer.write("wmic cpu get  name /all >pi.txt");
+
+      // Retour à la ligne
+      writer.newLine();
+
+     writer.write("wmic path win32_VideoController get name /all >> pi.txt");
+      // Retour à la ligne
+      writer.newLine();
+    writer.write("wmic MemoryChip get  Capacity, MemoryType, Speed /all >> pi.txt");
+
+
+      
+   }catch (IOException e) {
+
+      e.printStackTrace();
+}
+
+writer.close();
+Runtime.
+   getRuntime().
+   exec("cmd /d start \"\" cmd.bat");
+/*
+ProcessBuilder pb = new ProcessBuilder("cmd", "/d", "cmd.bat");
+pb.directory(c);
+Process p = pb.start();   */
+
+// Création d’un fileReader pour lire le fichier
+ FileReader fileReader = new FileReader("pi.txt");
+
+// Création d’un bufferedReader qui utilise le fileReader 
+BufferedReader reader = new BufferedReader (fileReader);
+
+
+   try { 
+
+     // une fonction à essayer pouvant générer une erreur
+     String line = reader.readLine();
+
+      while(line != null) {
+
+            // affichage de la ligne
+            System.out.println(line);
+
+            // lecture de la prochaine ligne
+            line = reader.readLine();
+    }} 
+
+
+catch (IOException e) {
+
+    e.printStackTrace();
+
+
+}
+
+reader.close();
+
+
+}  
+ 
              }
          
         

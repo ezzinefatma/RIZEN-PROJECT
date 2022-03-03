@@ -6,39 +6,16 @@
 package Pidev;
 
 import interfaces.Ichat;
+import static java.awt.PageAttributes.MediaType.C;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Locale;
-import model.Panier;
-import model.Produit;
-import model.Promotion;
-import model.User;
-import model.chat;
-import model.commentaire;
-import model.event;
-import model.news;
-import model.publication;
-import model.react_stream;
-import model.reclamation;
-import model.status_stream;
-import model.stream;
-import model.stream_category;
-import model.wallet;
-import services.ServiceChat;
-import services.ServiceEvent;
-import services.ServiceNews;
-import services.ServicePanier;
-import services.ServiceProduit;
-import services.ServicePromotion;
-import services.ServiceStream;
-import services.ServiceUser;
-import services.ServiceUserHistory;
-import services.ServiceWallet;
-import services.Servicereclamation;
-import services.servicecommentaire;
-import services.servicepublication;
+import model.*;
+import services.*;
+import static util.Pwd.getSHA;
+import static util.Pwd.toHexString;
 import util.maConnexion;
 
 /**
@@ -50,30 +27,47 @@ public class Pidev {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         // TODO code application logic here
         
        Connection cnx=maConnexion.getInstance().getCnx();
-       /*
+       
         //User
-        //User u1 = new User ("Ben nasr", "Fatma", 22, 22345678,"fatmanaser@gmail.com","rue sculpture nabeul","photo fatima")
-      User u2 = new User("Sebai", "Oussema", 23, 22587418,"oussema@gmail.com","rue jasmin tunis","photo oussema");
+      User u1 = new User ("Ben nasr", "Fatma", 22, 22345678,"fatmanaser@gmail.com","fatma_avatar","mypassword","rue sculpture nabeul","photo fatima",1);
+      User u2 = new User ("Ben nasr", "Ghada", 30, 22347178,"ghadanaser@gmail.com","ghada_avatar","pwd123","rue jasmin tunis","photo ghada",0);
 
         //Service
-        ServiceUser sp = new ServiceUser();
+        //ServiceUser sp = new ServiceUser();
+        //ServiceAdmin sa= new ServiceAdmin();
         
         //Ajouter
-        sp.ajouterUser(u2);
+     // sp.ajouterUser(u1);
+    //  sp.ajouterUser(u2);
+    /*    System.out.println("\n" + sa.Banned(u1));
+
+        System.out.println("************Get by Email************");
+        System.out.println("\n" + sa.getUserByEmail("ghadanaser@gmail.com"));
+         System.out.println("************Get by Username************");
+        System.out.println("\n" + sa.getUserByUsername("ghada_avatar"));
+        System.out.println("************Get by Nom************");
+        System.out.println("\n" + sa.getUserByNom("Ben nasr"));
+        System.out.println("************Get by Statut************");
+        System.out.println("\n" + sa.getUserByStatut(1));
+        */
+       
+        
         
         
         //Modifier
-       // sp.modifierUser(new User(1,"Ezzine", "Fatma", 27, 22345678,"fatmaezzine@gmail.com","rue 14 janvier Hammamet","photo fatma"));
+       // sa.modifierUser(new User (1,"Ben nasr", "Fatma", 22, 22345678,"fatmanaser@gmail.com","fatma_shoto","pwd","rue sculpture nabeul","photo fatima","User",1));
         
         //Afficher
        // System.out.println(sp.afficherUsers());
         
+       //lOGIN
        
-     */
+      // sa.login("ghadanaser@gmail.com","ps");
+     
      
                 /**************POSTS**********************/
         /*        
@@ -198,13 +192,16 @@ public class Pidev {
          
         
         /************* Recomanded List ************/
-
-        System.out.println(st.Recommended_list4());
-        //System.out.println(st.Recommended_list2());
+          //System.out.println(st.Recommended_list1());
+         //System.out.println(st.Recommended_list2());
+         //System.out.println(st.Recommended_list3());
+        //System.out.println(st.Recommended_list4(st.Recommended_list4_1()));
+        
+        st.sys_info();
           //st.Recommended_list();
       
                 // chat Service  : 
-        // ServiceChat ch = new ServiceChat();
+         ServiceChat ch = new ServiceChat();
           
          chat c1 = new chat ("good game",1,1,12520);
          chat c2 = new chat("bonjour ",2,2,18000); 
@@ -215,7 +212,7 @@ public class Pidev {
          //Ichat c3 = (Ichat) new chat("good game",1,1,12520);
          //Ichat ch = new ServiceChat();
          
-          
+             //System.out.println(ch.afficher_msg());
            //ADD_first_Method
                 //ch.ajouterchat(c1);
          //ADD_second_Method
@@ -265,7 +262,7 @@ public class Pidev {
         //System.out.println(his.afficherhistory());    
         //his.Supprimer_his_ParID(1);
         //his.Supprimer_tous();
-                                             
+           // st.sys_info();
                                  
          /*******************event*************/
                                

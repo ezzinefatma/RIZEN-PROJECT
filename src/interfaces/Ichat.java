@@ -27,6 +27,7 @@ public interface Ichat {
     public List<chat> RechercherParUser_Name (String n);
     // search by id 
     public List<chat> RechercherParId (int id);
-
+    //afficher_msg
+    public List<chat> afficher_msg();
     
 }

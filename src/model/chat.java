@@ -19,6 +19,10 @@ public class chat {
 
     public chat() {
     }
+    
+      public chat(String content) {
+        this.content = content;
+    }
 
     public chat(int id_comment, String content, int id_stream, int report_nbr) {
         this.id_comment = id_comment;
@@ -37,7 +41,12 @@ public class chat {
         this.id_stream = id_stream;
         this.report_nbr = report_nbr;
     }
-
+    
+    
+    
+    
+    
+    
     public chat(int id_comment, String content, int id_user, int id_stream, int report_nbr) {
         this.id_comment = id_comment;
         this.content = content;
@@ -45,6 +54,10 @@ public class chat {
         this.id_stream = id_stream;
         this.report_nbr = report_nbr;
     }
+
+   
+
+    
  
      // Getters
 
@@ -91,9 +104,10 @@ public class chat {
     }
     
     //Affichage
+    
     @Override
     public String toString() {
-        return "chat{"+ "id=" + id_comment + "\n"+", content=" + content + "\n"+", id_user=" +id_user+ "\n"+", id_stream=" +id_stream+ "\n"+",nbr_report=" + report_nbr + "\n"+"\n"+"*********************"+"\n"+'}';
+        return "chat"+ "id=" + id_comment + "\n"+", content=" + content + "\n"+", id_user=" +id_user+ "\n"+", id_stream=" +id_stream+ "\n"+",nbr_report=" + report_nbr + "\n"+"\n"+"*********************"+"\n";
     }
  
 }

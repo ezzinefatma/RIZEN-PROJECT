@@ -77,6 +77,27 @@ List<chat> chats = new ArrayList<>();
     }
 
     @Override
+    public List<chat> afficher_msg() {
+    
+        List<chat> chats = new ArrayList<>();
+        
+        String query = "SELECT `content` FROM chat ";
+        
+        try {
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            while (rs.next()) {                
+                chats.add(new chat(rs.getString(1)));
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }  
+        return chats;
+    
+    }
+    
+    @Override
     public void SupprimerParID_chat(int id) {
 try{
     String query="DELETE FROM `chat` WHERE id_comment="+id;

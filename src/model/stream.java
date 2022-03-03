@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.util.Objects;
+
 /**
  *
  * @author ford_
@@ -26,6 +28,16 @@ public class stream {
 
     public stream() {
     }
+
+    public stream(String titre_stream, stream_category categorie, String url, status_stream status, String background_pic, react_stream react) {
+        this.titre_stream = titre_stream;
+        this.categorie = categorie;
+        this.url = url;
+        this.status = status;
+        this.background_pic = background_pic;
+        this.react = react;
+    }
+    
 
     public stream(String titre_stream, stream_category categorie, int nbr_like, int nbr_report, String url, int id_user, status_stream status, String background_pic, react_stream react) {
         this.titre_stream = titre_stream;
@@ -164,6 +176,64 @@ public class stream {
                         +background_pic+ "\n"+",react="
                         +react+"\n"
                         +"*********************"+"\n"+'}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 97 * hash + this.id_stream;
+        hash = 97 * hash + Objects.hashCode(this.titre_stream);
+        hash = 97 * hash + Objects.hashCode(this.categorie);
+        hash = 97 * hash + this.nbr_like;
+        hash = 97 * hash + this.nbr_report;
+        hash = 97 * hash + Objects.hashCode(this.url);
+        hash = 97 * hash + this.id_user;
+        hash = 97 * hash + Objects.hashCode(this.status);
+        hash = 97 * hash + Objects.hashCode(this.background_pic);
+        hash = 97 * hash + Objects.hashCode(this.react);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final stream other = (stream) obj;
+        if (this.id_stream != other.id_stream) {
+            return false;
+        }
+        if (this.nbr_like != other.nbr_like) {
+            return false;
+        }
+        if (this.nbr_report != other.nbr_report) {
+            return false;
+        }
+        if (this.id_user != other.id_user) {
+            return false;
+        }
+        if (!Objects.equals(this.titre_stream, other.titre_stream)) {
+            return false;
+        }
+        if (!Objects.equals(this.url, other.url)) {
+            return false;
+        }
+        if (!Objects.equals(this.background_pic, other.background_pic)) {
+            return false;
+        }
+        if (this.categorie != other.categorie) {
+            return false;
+        }
+        if (this.status != other.status) {
+            return false;
+        }
+        return this.react == other.react;
     }
      
     

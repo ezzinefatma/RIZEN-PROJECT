@@ -22,48 +22,76 @@ public class User {
     private int age;
     private int numero_tel;
     private String email;
+    private String username;
+    private String password;
     private String adresse;
     private String photo;
     private String role;
     private int statut_user;
     
+    
     //CONSTRUCTEUR
 
     public User() {}
 
-    public User(int id_user, String nom_user, String prenom_user, int age, int numero_tel, String email, String adresse, String photo, String role, int statut_user) {
+    public User(int id_user, String nom_user, String prenom_user, int age, int numero_tel, String email, String username , String password,String adresse, String photo, String role, int statut_user) {
         this.id_user = id_user;
         this.nom_user = nom_user;
         this.prenom_user = prenom_user;
         this.age = age;
         this.numero_tel = numero_tel;
         this.email = email;
+        this.username=username;
+        this.password=password;
         this.adresse = adresse;
         this.photo = photo;
         this.role = role;
         this.statut_user = statut_user;
     }
 
-    public User(String nom_user, String prenom_user, int age, int numero_tel, String email, String adresse, String photo) {
+  
+
+    public User(String nom_user, String prenom_user, int age, int numero_tel, String email, String username , String password, String adresse, String photo , int statut_user) {
         this.nom_user = nom_user;
         this.prenom_user = prenom_user;
         this.age = age;
         this.numero_tel = numero_tel;
         this.email = email;
+        this.username=username;
+        this.password=password;
         this.adresse = adresse;
         this.photo = photo;
+        this.statut_user = statut_user;
     }
 
-    public User(int id_user, String nom_user, String prenom_user, int age, int numero_tel, String email, String adresse, String photo) {
+    public User(int id_user, String nom_user, String prenom_user, int age, int numero_tel, String email, String username , String password, String adresse, String photo) {
         this.id_user = id_user;
         this.nom_user = nom_user;
         this.prenom_user = prenom_user;
         this.age = age;
         this.numero_tel = numero_tel;
         this.email = email;
+        this.username=username;
+        this.password=password;
         this.adresse = adresse;
         this.photo = photo;
     }
+
+    public User(int id_user, String nom_user, String prenom_user, int age, int numero_tel, String email, String username, String password, String adresse, String photo, int statut_user) {
+        this.id_user = id_user;
+        this.nom_user = nom_user;
+        this.prenom_user = prenom_user;
+        this.age = age;
+        this.numero_tel = numero_tel;
+        this.email = email;
+        this.username = username;
+        this.password = password;
+        this.adresse = adresse;
+        this.photo = photo;
+        this.statut_user = statut_user;
+    }
+    
+    
     
     //Getters & Setters 
 
@@ -115,6 +143,31 @@ public class User {
         this.email = email;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public int getStatut_user() {
+        return statut_user;
+    }
+
+    public void setStatut_user(int statut_user) {
+        this.statut_user = statut_user;
+    }
+
+    
     public String getAdresse() {
         return adresse;
     }
@@ -152,8 +205,8 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" + "id_user=" + id_user + ", nom_user=" + nom_user + ", prenom_user=" + prenom_user + ", age=" + age + ", numero_tel=" + numero_tel + ", email=" + email + ", adresse=" + adresse + ", photo=" + photo + ", role=" + role + ", statut=" + statut_user + '}';
+        return "User{" + "id_user=" + id_user + ", nom_user=" + nom_user + ", prenom_user=" + prenom_user + ", age=" + age + ", numero_tel=" + numero_tel + ", email=" + email + ", username=" + username + ", password=" + password + ", adresse=" + adresse + ", photo=" + photo + ", role=" + role + ", statut_user=" + statut_user + '}';
     }
-   
+
     
 }
