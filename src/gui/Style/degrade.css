@@ -1,0 +1,14 @@
+.backgroundColor{
+      -fx-background-color: linear-gradient(to right,#134074, #9932cc);
+}
+
+.Courbe{
+      -fx-background-color: linear-gradient(to right,#134074, #6b00d7);
+}
+
+.golden{
+      -fx-background-color: linear-gradient(to right,#b78628, #ffdf00);
+}
+.silver{
+      -fx-background-color: linear-gradient(to right,#ffffff, #393b3c);
+}

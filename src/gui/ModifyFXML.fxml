@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="623.0" prefWidth="867.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ModifyFXMLController">
+   <children>
+      <TableView fx:id="tabrec" layoutX="22.0" layoutY="251.0" prefHeight="310.0" prefWidth="822.0">
+         <columns>
+            <TableColumn fx:id="idRec" prefWidth="75.0" text="ID" />
+            <TableColumn fx:id="typerec" prefWidth="143.99996948242188" text="Type" />
+            <TableColumn fx:id="descRec" prefWidth="306.3999786376953" text="Description" />
+            <TableColumn fx:id="StatRec" prefWidth="78.4000244140625" text="Statut" />
+            <TableColumn fx:id="Daterec" prefWidth="152.00006103515625" text="Date" />
+            <TableColumn fx:id="Iduser" prefWidth="67.20001220703125" text="ID user" />
+         </columns>
+      </TableView>
+      <Button layoutX="365.0" layoutY="576.0" mnemonicParsing="false" onAction="#afichier" prefHeight="30.0" prefWidth="122.0" text="Display" />
+      <Button layoutX="165.0" layoutY="576.0" mnemonicParsing="false" onAction="#UPDATE" prefHeight="30.0" prefWidth="122.0" text="Update" />
+      <Button layoutX="565.0" layoutY="576.0" mnemonicParsing="false" onAction="#DELETE" prefHeight="30.0" prefWidth="122.0" text="Delete" />
+      <Label layoutX="14.0" layoutY="80.0" text="ID" />
+      <TextField fx:id="IDRECSEARCH" layoutX="61.0" layoutY="76.0" prefHeight="26.0" prefWidth="41.0" promptText="ID.." />
+      <Label layoutX="7.0" layoutY="135.0" text="Type" />
+      <TextField fx:id="TypeSEARCH" layoutX="61.0" layoutY="131.0" prefHeight="26.0" prefWidth="116.0" promptText="Type..." />
+      <Label layoutX="196.0" layoutY="80.0" text="Description" />
+      <TextArea fx:id="DESCAFFREC" layoutX="279.0" layoutY="71.0" prefHeight="127.0" prefWidth="416.0" promptText="Description...." />
+      <Label layoutX="4.0" layoutY="179.0" text="Statut" />
+      <TextField fx:id="STTSEARCHREC" layoutX="61.0" layoutY="175.0" prefHeight="26.0" prefWidth="116.0" promptText="Statut..." />
+      <TextField fx:id="SearchREC" layoutX="61.0" layoutY="17.0" prefHeight="26.0" prefWidth="116.0" promptText="Id looking for..." />
+      <Button layoutX="200.0" layoutY="17.0" mnemonicParsing="false" onAction="#SEARCH" text="Search" />
+      <ImageView fitHeight="82.0" fitWidth="158.0" layoutX="658.0" layoutY="-11.0">
+         <image>
+            <Image url="@../../../../../Desktop/PI_DEV/graph/logo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
