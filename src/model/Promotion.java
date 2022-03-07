@@ -32,6 +32,13 @@ public class Promotion {
         this.taux_reduction = taux_reduction;
     }
 
+    /**
+     *
+     * @param id_prod
+     * @param date_debut_prom
+     * @param date_fin_prom
+     * @param taux_reduction
+     */
     public Promotion(int id_prod, String date_debut_prom, String date_fin_prom, int taux_reduction) {
         this.id_prod = id_prod;
         this.date_debut_prom = date_debut_prom;
@@ -39,6 +46,10 @@ public class Promotion {
         this.taux_reduction = taux_reduction;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getId_prom() {
         return id_prom;
     }
@@ -51,6 +62,10 @@ public class Promotion {
         return id_prod;
     }
 
+    /**
+     *
+     * @param id_prod
+     */
     public void setId_prod(int id_prod) {
         this.id_prod = id_prod;
     }

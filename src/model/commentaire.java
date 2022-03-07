@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.sql.Timestamp;
+import model.User;
 /**
  *
  * @author ASUS
@@ -12,25 +14,47 @@ public class commentaire {
 //var
     private int id_com;
     private String content_com	;
-    private String date_com;
-   
+    private Timestamp date_com;
+    private String user_name;
     private int id_user;
-    
-    //Constructor
 
     public commentaire() {
     }
 
-    public commentaire(String content_com, String date_com, int id_user) {
+    public commentaire(String content_com, Timestamp date_com, String user_name, int id_user) {
         this.content_com = content_com;
         this.date_com = date_com;
+        this.user_name = user_name;
         this.id_user = id_user;
     }
 
-    public commentaire(int id_com, String content_com, String date_com, int id_user) {
+    public commentaire(int id_com, String content_com, Timestamp date_com, String user_name, int id_user) {
         this.id_com = id_com;
         this.content_com = content_com;
         this.date_com = date_com;
+        this.user_name = user_name;
+        this.id_user = id_user;
+    }
+
+    public commentaire(int id_com, String content_com, int id_user) {
+        this.id_com = id_com;
+        this.content_com = content_com;
+        this.id_user = id_user;
+    }
+
+    public commentaire(int id_com, String content_com) {
+        this.id_com = id_com;
+        this.content_com = content_com;
+    }
+
+    public commentaire(String content_com, Timestamp date_com, String user_name) {
+        this.content_com = content_com;
+        this.date_com = date_com;
+        this.user_name = user_name;
+    }
+
+    public commentaire(String content_com, int id_user) {
+        this.content_com = content_com;
         this.id_user = id_user;
     }
 
@@ -42,8 +66,12 @@ public class commentaire {
         return content_com;
     }
 
-    public String getDate_com() {
+    public Timestamp getDate_com() {
         return date_com;
+    }
+
+    public String getUser_name() {
+        return user_name;
     }
 
     public int getId_user() {
@@ -58,23 +86,27 @@ public class commentaire {
         this.content_com = content_com;
     }
 
-    public void setDate_com(String date_com) {
+    public void setDate_com(Timestamp date_com) {
         this.date_com = date_com;
+    }
+
+    public void setUser_name(String user_name) {
+        this.user_name = user_name;
     }
 
     public void setId_user(int id_user) {
         this.id_user = id_user;
     }
 
- public String toString() {
-        return "commentaire{" + "id=" + id_com + ", content=" + content_com + ", date_pub=" + date_com +  ", id_user=" + id_user + '}';
+    @Override
+    public String toString() {
+       return "commentaire{"+ "id=" + id_com + "\n"+" content=" 
+                        + content_com +  "\n"+" id_user =" 
+                        +id_user+ "\n"+"user_name=" 
+                        + user_name +"\n"
+                        +"******************************"+"\n"+'}';
     }
-
-
-
-
-
-
+    
 
 
 

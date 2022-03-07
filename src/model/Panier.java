@@ -15,6 +15,9 @@ public class Panier {
     private int id_user;
      private int quantite;
 
+    /**
+     *
+     */
     public Panier() {
     }
 
@@ -24,6 +27,11 @@ public class Panier {
         this.quantite = quantite;
     }
 
+    /**
+     *
+     * @param id_user
+     * @param quantite
+     */
     public Panier(int id_user, int quantite) {
         this.id_user = id_user;
         this.quantite = quantite;
@@ -33,12 +41,18 @@ public class Panier {
         this.quantite = quantite;
     }
 
-   
-
+    /**
+     *
+     * @return
+     */
     public int getId_prod() {
         return id_prod;
     }
 
+    /**
+     *
+     * @param id_prod
+     */
     public void setId_prod(int id_prod) {
         this.id_prod = id_prod;
     }
@@ -47,6 +61,10 @@ public class Panier {
         return id_user;
     }
 
+    /**
+     *
+     * @param id_user
+     */
     public void setId_user(int id_user) {
         this.id_user = id_user;
     }
@@ -55,6 +73,10 @@ public class Panier {
         return quantite;
     }
 
+    /**
+     *
+     * @param quantite
+     */
     public void setQuantite(int quantite) {
         this.quantite = quantite;
     }

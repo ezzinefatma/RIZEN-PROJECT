@@ -14,7 +14,12 @@ import model.Panier;
  */
 public interface Ipanier {
     public void ajouterpanier(Panier s);
-      public List<Panier> afficherpanier();
+
+    /**
+     *
+     * @return
+     */
+    public List<Panier> afficherpanier();
       public void modifierpanier(Panier s);
       public void supppanier(Panier s);
       

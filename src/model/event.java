@@ -46,6 +46,10 @@ public class event {
         this.type = type;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getId_event() {
         return id_event;
     }
@@ -58,10 +62,18 @@ public class event {
         return titre_event;
     }
 
+    /**
+     *
+     * @param titre_event
+     */
     public void setTitre_event(String titre_event) {
         this.titre_event = titre_event;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDate_debut() {
         return date_debut;
     }
@@ -106,6 +118,10 @@ public class event {
         return type;
     }
 
+    /**
+     *
+     * @param type
+     */
     public void setType(String type) {
         this.type = type;
     }

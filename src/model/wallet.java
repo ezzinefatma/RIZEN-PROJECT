@@ -61,6 +61,10 @@ public class wallet {
         return solde;
     }
 
+    /**
+     *
+     * @param solde
+     */
     public void setSolde(int solde) {
         this.solde = solde;
     }
@@ -77,6 +81,10 @@ public class wallet {
         return csc;
     }
 
+    /**
+     *
+     * @param csc
+     */
     public void setCsc(int csc) {
         this.csc = csc;
     }

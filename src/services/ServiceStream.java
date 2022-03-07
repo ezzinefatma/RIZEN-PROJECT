@@ -99,6 +99,10 @@ String Req = "INSERT INTO `stream`(`titre_stream`, `categorie`, `nbr_like`, `nbr
     }
     }
     
+    /**
+     *
+     * @param s
+     */
     @Override
             public void ModifierStream (stream s){
         try{

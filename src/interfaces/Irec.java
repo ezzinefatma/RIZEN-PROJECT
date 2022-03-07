@@ -20,6 +20,11 @@ public interface Irec {
      public List<reclamation> afficherReclamation();
         
     //modifier 
+
+    /**
+     *
+     * @param r
+     */
         public void modifierUser_rec(reclamation r);
        // public void modifieradmin_rec(reclamation r);
         

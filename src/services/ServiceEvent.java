@@ -58,7 +58,12 @@ public class ServiceEvent implements Ievent{
             ex.printStackTrace();
         }
    }
-   @Override
+
+    /**
+     *
+     * @param id
+     */
+    @Override
    public void supprimerEvent(int id){
       try {
           String query ="DELETE FROM `event` WHERE id_event="+id;
@@ -69,7 +74,12 @@ public class ServiceEvent implements Ievent{
       catch(SQLException e){
         System.out.println(e.getMessage());}
    }
-   @Override
+
+    /**
+     *
+     * @param e
+     */
+    @Override
    public void modifierEvent(event e)
    {
        try {

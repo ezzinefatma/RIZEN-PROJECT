@@ -12,6 +12,11 @@ import model.news;
 public interface Inews {
     public List<news> afficherNews();
     public void ajouterNews(news n);
+
+    /**
+     *
+     * @param id
+     */
     public void supprimerNews(int id);
     public void modifierNews(news n);
 }

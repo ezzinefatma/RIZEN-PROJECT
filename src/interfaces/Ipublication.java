@@ -5,6 +5,7 @@
 package interfaces;
 
 import java.util.List;
+import model.User;
 import model.publication;
 
 /**
@@ -20,10 +21,11 @@ public interface Ipublication {
     
     public void SupprimerParID(int id_pub);
     public List<publication> afficherPublication();
-    public void modifierpublication (publication pub);
+    public void modifierpublication (publication pub,int id);
 
-
-
-
+     public List<publication>RechercherParId(int id);
+     public List<publication>RechercherParcontent(String content_pub);
+      public List<publication> PublicationSuperieur();
+     // public List<publication> SeulementPublication();
     
 }

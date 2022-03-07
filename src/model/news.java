@@ -37,6 +37,10 @@ public class news {
         return id_news;
     }
 
+    /**
+     *
+     * @param id_news
+     */
     public void setId_news(int id_news) {
         this.id_news = id_news;
     }
@@ -53,10 +57,18 @@ public class news {
         return contenu_news;
     }
 
+    /**
+     *
+     * @param contenu_news
+     */
     public void setContenu_news(String contenu_news) {
         this.contenu_news = contenu_news;
     }
 
+    /**
+     *
+     * @return
+     */
     public Date getDate_news() {
         return date_news;
     }

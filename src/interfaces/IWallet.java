@@ -16,6 +16,11 @@ public interface IWallet {
     public void ajouterwallet(wallet x);
     
     //affichage 
+
+    /**
+     *
+     * @return
+     */
      public List<wallet> afficherwallet();
         
     //modifier 

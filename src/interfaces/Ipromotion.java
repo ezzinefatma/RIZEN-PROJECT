@@ -13,8 +13,18 @@ import model.Promotion;
  * @author MSI
  */
 public interface Ipromotion {
+
+    /**
+     *
+     * @param p
+     */
     public void ajouterpromotion(Promotion p); 
-      public List<Promotion > afficherpromotion();
+
+    /**
+     *
+     * @return
+     */
+    public List<Promotion > afficherpromotion();
       public void modifierpromotion(Promotion p);
       public void supppromotion(Promotion p);
 

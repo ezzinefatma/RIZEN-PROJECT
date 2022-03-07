@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1215.0" styleClass="primary_color" stylesheets="@Style/style.css.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PostsController">
+   <left>
+      <VBox prefHeight="200.0" prefWidth="235.0" styleClass="secondary-color" stylesheets="@Style/style.css.css" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/ic_more.png" />
+               </image>
+               <VBox.margin>
+                  <Insets left="20.0" top="20.0" />
+               </VBox.margin>
+            </ImageView>
+            <VBox prefHeight="219.0" prefWidth="235.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" />
+                  <HBox alignment="CENTER" prefHeight="105.0" prefWidth="235.0" spacing="20.0">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" opacity="0.61" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/ic_home.png" />
+                           </image>
+                        </ImageView>
+                        <Label prefHeight="36.0" prefWidth="75.0" text="Home">
+                           <textFill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color blue="1.0" green="0.39259257912635803" red="0.7469135522842407" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="0.9877112135176652">
+                                       <color>
+                                          <Color blue="0.410526305437088" green="0.21742689609527588" red="0.23673684895038605" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color blue="0.410526305437088" green="0.21742689609527588" red="0.23673684895038605" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="97.0" prefWidth="235.0" spacing="20.0">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/ic_radio.png" />
+                           </image>
+                        </ImageView>
+                        <Label prefHeight="18.0" prefWidth="75.0" text="Stream">
+                           <textFill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color blue="1.0" green="0.39259257912635803" red="0.7469135522842407" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="0.9877112135176652">
+                                       <color>
+                                          <Color blue="0.410526305437088" green="0.21742689609527588" red="0.23673684895038605" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color blue="0.410526305437088" green="0.21742689609527588" red="0.23673684895038605" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="92.0" prefWidth="235.0" spacing="20.0">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/ic_devices.png" />
+                           </image>
+                        </ImageView>
+                        <Label prefHeight="18.0" prefWidth="75.0" text="Store">
+                           <textFill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color blue="1.0" green="0.39259257912635803" red="0.7469135522842407" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="0.9877112135176652">
+                                       <color>
+                                          <Color blue="0.410526305437088" green="0.21742689609527588" red="0.23673684895038605" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color blue="0.410526305437088" green="0.21742689609527588" red="0.23673684895038605" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <HBox alignment="CENTER" prefHeight="75.0" prefWidth="235.0" spacing="20.0">
+               <children>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icons8-event-64.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="18.0" prefWidth="75.0" text="Event">
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color blue="1.0" green="0.39259257912635803" red="0.7469135522842407" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.9877112135176652">
+                                 <color>
+                                    <Color blue="0.410526305437088" green="0.21742689609527588" red="0.23673684895038605" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color blue="0.410526305437088" green="0.21742689609527588" red="0.23673684895038605" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="89.0" prefWidth="235.0" spacing="20.0">
+               <children>
+                  <ImageView fitHeight="46.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icons8-us-news-64.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="18.0" prefWidth="75.0" text="Post">
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color blue="1.0" green="0.39259257912635803" red="0.7469135522842407" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.9877112135176652">
+                                 <color>
+                                    <Color blue="0.410526305437088" green="0.21742689609527588" red="0.23673684895038605" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color blue="0.410526305437088" green="0.21742689609527588" red="0.23673684895038605" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Pane prefHeight="347.0" prefWidth="235.0" />
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" styleClass="top-border" stylesheets="@Style/style.css.css">
+               <children>
+                  <ImageView fitHeight="43.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/ic_add.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="27.0" prefWidth="118.0" text="Add Post" textOverrun="CLIP">
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop color="#be64ff" />
+                              <Stop color="#3c3769" offset="0.9877112135176652" />
+                              <Stop color="#3c3768" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="56.0" prefWidth="1080.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="56.0" prefWidth="109.0">
+                     <children>
+                        <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" opacity="0.61" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/ic_back.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" opacity="0.61" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/ic_forward.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="35.0" prefWidth="215.0" styleClass="search-container" stylesheets="@Style/style.css.css">
+                     <children>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" opacity="0.61" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/ic_search.png" />
+                           </image>
+                        </ImageView>
+                        <TextField prefHeight="31.0" prefWidth="168.0" promptText="Search..." style="-fx-background-color: transparent;" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

@@ -45,6 +45,10 @@ public class chat {
         return content;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getId_user() {
         return id_user;
     }
@@ -58,6 +62,11 @@ public class chat {
     }
     
     // Setters
+
+    /**
+     *
+     * @param id_comment
+     */
 
     public void setId_comment(int id_comment) {
         this.id_comment = id_comment;

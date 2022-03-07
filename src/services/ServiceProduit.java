@@ -71,10 +71,10 @@ public class ServiceProduit implements Iproduit {
         
         return prod; }
     
-    
-    
-
-
+    /**
+     *
+     * @param s
+     */
     @Override
     public void modifierproduit(Produit s) {
           try{
@@ -96,6 +96,10 @@ public class ServiceProduit implements Iproduit {
     
     }       }
 
+    /**
+     *
+     * @param s
+     */
     @Override
     public void suppproduit(Produit s) {
         try (PreparedStatement ps = cnx.prepareStatement("DELETE FROM produit WHERE  id_prod = ?")

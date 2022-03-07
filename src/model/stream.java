@@ -55,6 +55,10 @@ public class stream {
         return categorie;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getNbr_like() {
         return nbr_like;
     }
@@ -67,7 +71,10 @@ public class stream {
         return url;
     }
 
-    
+    /**
+     *
+     * @return
+     */
     public int getId_user() {
         return id_user;
     }
@@ -78,18 +85,34 @@ public class stream {
         this.id_stream = id_stream;
     }
 
+    /**
+     *
+     * @param titre_stream
+     */
     public void setTitre_stream(String titre_stream) {
         this.titre_stream = titre_stream;
     }
 
+    /**
+     *
+     * @param categorie
+     */
     public void setCategorie(String categorie) {
         this.categorie = categorie;
     }
 
+    /**
+     *
+     * @param nbr_like
+     */
     public void setNbr_like(int nbr_like) {
         this.nbr_like = nbr_like;
     }
 
+    /**
+     *
+     * @param nbr_report
+     */
     public void setNbr_report(int nbr_report) {
         this.nbr_report = nbr_report;
     }
@@ -98,6 +121,10 @@ public class stream {
         this.url = url;
     }
 
+    /**
+     *
+     * @param id_user
+     */
     public void setId_user(int id_user) {
         this.id_user = id_user;
     }

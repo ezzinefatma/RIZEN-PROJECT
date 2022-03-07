@@ -13,10 +13,18 @@ import model.commentaire;
  */
 public interface Icommentaire {
     //Add
+
+    /**
+     *
+     * @param com
+     */
     public void ajouterCommentaire(commentaire com);
     
-  
-     public void SupprimerParID(int id_com);
+    /**
+     *
+     * @param id_com
+     */
+    public void SupprimerParID(int id_com);
      public List<commentaire> afficherCommentaire();
 public void modifiercommentaire (commentaire com );
 

@@ -26,7 +26,10 @@ public class Servicereclamation implements Irec {
     //var 
         Connection cnx = maConnexion.getInstance().getCnx();
 
-
+    /**
+     *
+     * @param r
+     */
     @Override
     public void ajouterReclamation(reclamation r) {
      String req ="INSERT INTO `reclamation`( `type_rec`, `description_rec`, `id_user`) VALUES (?,?,?) ";

@@ -54,6 +54,17 @@ public class User {
         this.photo = photo;
     }
 
+    /**
+     *
+     * @param id_user
+     * @param nom_user
+     * @param prenom_user
+     * @param age
+     * @param numero_tel
+     * @param email
+     * @param adresse
+     * @param photo
+     */
     public User(int id_user, String nom_user, String prenom_user, int age, int numero_tel, String email, String adresse, String photo) {
         this.id_user = id_user;
         this.nom_user = nom_user;
@@ -99,6 +110,10 @@ public class User {
         this.age = age;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getNumero_tel() {
         return numero_tel;
     }
@@ -123,6 +138,10 @@ public class User {
         this.adresse = adresse;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPhoto() {
         return photo;
     }
@@ -139,6 +158,10 @@ public class User {
         this.role = role;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getStatut() {
         return statut_user;
     }

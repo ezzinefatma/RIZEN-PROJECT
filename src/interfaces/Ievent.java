@@ -11,6 +11,11 @@ import model.event;
  */
 public interface Ievent {
     public List<event> afficherEvent();
+
+    /**
+     *
+     * @param e
+     */
     public void ajouterEvent(event e);
     public void supprimerEvent(int id);
     public void modifierEvent(event e);

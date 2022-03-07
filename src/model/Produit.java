@@ -49,14 +49,26 @@ public class Produit {
         this.quantite = quantite;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getId_prod() {
         return id_prod;
     }
 
+    /**
+     *
+     * @param id_prod
+     */
     public void setId_prod(int id_prod) {
         this.id_prod = id_prod;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCategorie_prod() {
         return categorie_prod;
     }
@@ -125,6 +137,10 @@ public class Produit {
         return quantite;
     }
 
+    /**
+     *
+     * @param quantite
+     */
     public void setQuantite(int quantite) {
         this.quantite = quantite;
     }

@@ -39,6 +39,12 @@ public class reclamation {
         this.id_user = id_user;
     }
 
+    /**
+     *
+     * @param type_rec
+     * @param description_rec
+     * @param id_user
+     */
     public reclamation(String type_rec, String description_rec, int id_user) {
         this.type_rec = type_rec;
         this.description_rec = description_rec;
@@ -88,6 +94,10 @@ public class reclamation {
         return statut_rec;
     }
 
+    /**
+     *
+     * @param statut_rec
+     */
     public void setStatut_rec(String statut_rec) {
         this.statut_rec = statut_rec;
     }

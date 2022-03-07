@@ -67,29 +67,35 @@ public class Pidev {
      */
      
                 /**************POSTS**********************/
-        /*        
+        //        
         //Service
        servicepublication sp = new servicepublication();
       servicecommentaire sc = new servicecommentaire();
         //publication
-       publication pub = new publication("salut", "16/03/2020", 55, 1);
-      //publication pub1 = new publication(1,"Salut comment cava ?", "17/02/2022", 55, 1);
        
+    // publication pub = new publication("cv",111,1);
+      // sp.modifierpublication(pub, 3);
        //commentaire
-       // commentaire com = new commentaire("cava et toi ?", "16/02/2022", 1);
-      //  System.out.println(sc.afficherCommentaire());
+       // commentaire com = new commentaire(2,"yes ?",1);
+       // System.out.println(sc.afficherCommentaire());
+                  
          //Ajouter
-         // sc.ajouterCommentaire(com);
-            sp.ajouterPublication(pub);
-            //  sp.modifierpublication(pub1);
-            System.out.println(sp.afficherPublication());
+        // sc.ajouterCommentaire(com);
+         //sp.ajouterPublication(pub);
+             // sp.modifierpublication(pub1);
+         //  System.out.println(sp.afficherPublication());
          // delete
-        // sc.SupprimerParID(4);
+        // sc.SupprimerParID(1);
         //  sp.SupprimerParID(7);
-       // commentaire com_edit = new commentaire(1,"Nn ", "10/02/2020", 1);
-     //  sc.modifiercommentaire(com_edit);
-     
-     */
+    
+        //sc.modifiercommentaire(com);
+    
+       // System.out.println(""+"la recherche selon votre id souhaiter est:"+  sp.RechercherParId(3));
+      
+       
+              // System.out.println(sp.RechercherParcontent("salut"));
+     //System.out.println( ""+"les statut trend sont:"+ sp.PublicationSuperieur());
+     //
      /************************produits*************************/
      
    /*
@@ -127,8 +133,7 @@ public class Pidev {
         
       //sp.supppanier(s);
         
-        
-        
+      
         //Afficher
    System.out.println( sppp. afficherpanier());
      

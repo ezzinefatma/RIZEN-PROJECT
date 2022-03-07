@@ -22,7 +22,10 @@ import util.maConnexion;
 public class ServiceNews implements Inews{
       Connection cnx = maConnexion.getInstance().getCnx();
       
-
+    /**
+     *
+     * @return
+     */
     public List<news> afficherNews() {
         List<news> news = new ArrayList<>();
    String query = "SELECT * FROM news";
@@ -39,7 +42,11 @@ public class ServiceNews implements Inews{
    return news;
     }
 
-      @Override
+    /**
+     *
+     * @param n
+     */
+    @Override
     public void ajouterNews(news n) {
        String Req = "INSERT INTO `news`(`titre_news`,`contenu_news`) VALUES (?,?)";
        try {
