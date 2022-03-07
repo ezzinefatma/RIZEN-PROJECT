@@ -25,13 +25,13 @@ public class ServiceUserHistory {
     public List<user_history> afficherhistory() {
 List<user_history> history= new ArrayList<>();
         
-        String query = "SELECT * FROM `user_stream_history` ";
-        
+        //String query = "SELECT user_stream_history.id_user, user_stream_history.stream_id, user_stream_history.date, user.username, stream.titre_stream, stream.url FROM user_stream_history INNER JOIN user ON user_stream_history.id_user=user.id_user inner JOIN stream ON user_stream_history.stream_id=stream.id_stream; ";
+        String query ="SELECT   user.username,stream.titre_stream,stream.url,user_stream_history.date FROM user_stream_history INNER JOIN user ON user_stream_history.id_user=user.id_user inner JOIN stream ON user_stream_history.stream_id=stream.id_stream";
         try {
             Statement st = cnx.createStatement();
             ResultSet rs = st.executeQuery(query);
             while (rs.next()) {                
-               history.add(new user_history(rs.getInt(1), rs.getInt(2),rs.getInt(3),rs.getInt(4)));
+               history.add(new user_history(rs.getString(1), rs.getString(1),rs.getString(1),rs.getTimestamp(4)));
             }
             
         } catch (SQLException ex) {

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.web.WebView?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <WebView fx:id="video_url" prefHeight="197.0" prefWidth="450.0" />
+      <Label fx:id="userName" prefHeight="33.0" prefWidth="450.0" text="user_name" />
+      <Label fx:id="title" prefHeight="66.0" prefWidth="450.0" text="Title" />
+   </children>
+</VBox>

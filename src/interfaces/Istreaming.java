@@ -6,6 +6,7 @@ package interfaces;
 
 import java.io.IOException;
 import java.util.List;
+import model.User;
 import model.stream;
 
 /**
@@ -19,10 +20,11 @@ public interface Istreaming {
     public void ajouterstream1(stream s);
     //List
     public List<stream> afficherstream(); 
+    
     //delete
     public void SupprimerParID(int id_stream);
     // Edit 
-    public void ModifierStream (stream s);
+    public void ModifierStream (stream s,int id);
     //recommanded_list
     public void Recommended_list();
     //search by title

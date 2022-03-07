@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+
 package model;
+
 
 import java.util.Objects;
 
@@ -21,25 +23,51 @@ public class stream {
        private   int     id_user;
        private   status_stream status;
        private   String background_pic;
-       private   react_stream react;
-      
+       private   String username;
        
     //Constructor
 
     public stream() {
     }
 
-    public stream(String titre_stream, stream_category categorie, String url, status_stream status, String background_pic, react_stream react) {
+    public stream(String titre_stream, stream_category categorie, String url, status_stream status, String background_pic) {
         this.titre_stream = titre_stream;
         this.categorie = categorie;
         this.url = url;
         this.status = status;
         this.background_pic = background_pic;
-        this.react = react;
+        
+    }
+
+    public stream(String titre_stream, stream_category categorie, int nbr_like, int nbr_report, String url, status_stream status, String background_pic, String username) {
+        this.titre_stream = titre_stream;
+        this.categorie = categorie;
+        this.nbr_like = nbr_like;
+        this.nbr_report = nbr_report;
+        this.url = url;
+        this.status = status;
+        this.background_pic = background_pic;
+        
+         this.username = username;
+    }
+
+    public stream(String username) {
+         this.username = username;
+    }
+
+    public stream(String titre_stream, stream_category categorie, int nbr_like, int nbr_report, String url, status_stream status, String background_pic) {
+        this.titre_stream = titre_stream;
+        this.categorie = categorie;
+        this.nbr_like = nbr_like;
+        this.nbr_report = nbr_report;
+        this.url = url;
+        this.status = status;
+        this.background_pic = background_pic;
+       
     }
     
 
-    public stream(String titre_stream, stream_category categorie, int nbr_like, int nbr_report, String url, int id_user, status_stream status, String background_pic, react_stream react) {
+    public stream(String titre_stream, stream_category categorie, int nbr_like, int nbr_report, String url, int id_user, status_stream status, String background_pic) {
         this.titre_stream = titre_stream;
         this.categorie = categorie;
         this.nbr_like = nbr_like;
@@ -48,11 +76,11 @@ public class stream {
         this.id_user = id_user;
         this.status = status;
         this.background_pic = background_pic;
-        this.react = react;
+        
        
     }
 
-    public stream(int id_stream, String titre_stream, stream_category categorie, int nbr_like, int nbr_report, String url, int id_user, status_stream status, String background_pic, react_stream react) {
+    public stream(int id_stream, String titre_stream, stream_category categorie, int nbr_like, int nbr_report, String url, int id_user, status_stream status, String background_pic,String username) {
         this.id_stream = id_stream;
         this.titre_stream = titre_stream;
         this.categorie = categorie;
@@ -62,9 +90,34 @@ public class stream {
         this.id_user = id_user;
         this.status = status;
         this.background_pic = background_pic;
-        this.react = react;
-        
+         this.username = username;
     }
+
+    public stream(int id_stream, String titre_stream, stream_category categorie, int nbr_like, int nbr_report, String url, status_stream status, String background_pic,  String  username) {
+        this.id_stream = id_stream;
+        this.titre_stream = titre_stream;
+        this.categorie = categorie;
+        this.nbr_like = nbr_like;
+        this.nbr_report = nbr_report;
+        this.url = url;
+        this.status = status;
+        this.background_pic = background_pic;
+        
+        this.username = username;
+    }
+
+    public stream(int id_stream, String titre_stream, stream_category categorie, int nbr_like, int nbr_report, String url, status_stream status, String background_pic) {
+        this.id_stream = id_stream;
+        this.titre_stream = titre_stream;
+        this.categorie = categorie;
+        this.nbr_like = nbr_like;
+        this.nbr_report = nbr_report;
+        this.url = url;
+        this.status = status;
+        this.background_pic = background_pic;
+    }
+
+    
 
   
     
@@ -108,14 +161,20 @@ public class stream {
         return background_pic;
     }
 
-    public react_stream getReact() {
-        return react;
+    public String getUsername() {
+        return username;
     }
+
 
     
     
     
+    
     // Setters
+
+    public void setUsername( String username) {
+        this.username = username;
+    }
 
     public void setId_stream(int id_stream) {
         this.id_stream = id_stream;
@@ -155,15 +214,12 @@ public class stream {
         this.background_pic = background_pic;
     }
 
-    public void setReact(react_stream react) {
-        this.react = react;
-    }
-
+   
     
 
     
     //Affichage
-    @Override
+ @Override
     public String toString() {
         return "stream{"+ "id=" + id_stream + "\n"+", titre=" 
                         + titre_stream + "\n"+", categorie=" 
@@ -174,7 +230,7 @@ public class stream {
                         +id_user+"\n"+",status="
                         +status+"\n"+",background_pic="
                         +background_pic+ "\n"+",react="
-                        +react+"\n"
+                        +username+"\n"
                         +"*********************"+"\n"+'}';
     }
 
@@ -190,7 +246,7 @@ public class stream {
         hash = 97 * hash + this.id_user;
         hash = 97 * hash + Objects.hashCode(this.status);
         hash = 97 * hash + Objects.hashCode(this.background_pic);
-        hash = 97 * hash + Objects.hashCode(this.react);
+        
         return hash;
     }
 
@@ -227,14 +283,16 @@ public class stream {
         if (!Objects.equals(this.background_pic, other.background_pic)) {
             return false;
         }
+        if (!Objects.equals(this.username, other.username)) {
+            return false;
+        }
         if (this.categorie != other.categorie) {
             return false;
         }
-        if (this.status != other.status) {
-            return false;
-        }
-        return this.react == other.react;
+        return this.status == other.status;
     }
+
+    
      
     
 }

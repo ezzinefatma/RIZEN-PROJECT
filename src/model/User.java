@@ -90,6 +90,10 @@ public class User {
         this.photo = photo;
         this.statut_user = statut_user;
     }
+
+    public User(String username) {
+        this.username = username;
+    }
     
     
     
