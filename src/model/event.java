@@ -35,6 +35,16 @@ public class event {
         this.type = type;
     }
 
+    public event(String titre_event, String date_debut, String date_fin, String image, String description, String type) {
+        this.titre_event = titre_event;
+        this.date_debut = date_debut;
+        this.date_fin = date_fin;
+        this.image = image;
+        this.description = description;
+        this.type = type;
+    }
+    
+
     public event(int id_event, String titre_event, String date_debut, String date_fin, String image, String description, int capacite, String type) {
         this.id_event = id_event;
         this.titre_event = titre_event;
@@ -114,5 +124,6 @@ public class event {
     public String toString() {
         return "event{" + "id_event=" + id_event + ", titre_event=" + titre_event + ", date_debut=" + date_debut + ", date_fin=" + date_fin + ", image=" + image + ", description=" + description + ", capacite=" + capacite + '}';
     }
+    
     
 }

@@ -88,4 +88,20 @@ public class ServiceEvent implements Ievent{
         System.out.println(ex.getMessage());
 }
    }
+   @Override
+   public List<event> afficherEvents() {
+   List<event> event = new ArrayList<>();
+   String query = "SELECT titre_event,date_debut,date_fin,image_event,description_event,type_event FROM event";
+   try {
+   Statement st = cnx.createStatement();
+   ResultSet rs = st.executeQuery(query);
+   while (rs.next()){
+   event.add(new event (rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6)));
+   }
+   }
+   catch(SQLException ex){
+   ex.printStackTrace();
+   }
+   return event;
+   }
 }

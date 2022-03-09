@@ -18,6 +18,7 @@ import model.publication;
 import model.reclamation;
 import model.stream;
 import model.wallet;
+import services.PDF;
 import services.ServiceChat;
 import services.ServiceEvent;
 import services.ServiceNews;
@@ -28,6 +29,7 @@ import services.ServiceStream;
 import services.ServiceUser;
 import services.ServiceWallet;
 import services.Servicereclamation;
+import services.serviceInscription;
 import services.servicecommentaire;
 import services.servicepublication;
 import util.maConnexion;
@@ -43,8 +45,9 @@ public class Pidev {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.println("bonjouuurrrrrrrrrrr");
+       // System.out.println("bonjouuurrrrrrrrrrr");
        Connection cnx=maConnexion.getInstance().getCnx();
+       User u2 = new User(2,"Sebai", "Oussema", 23, 22587418,"oussamaesprit1@gmail.com","rue jasmin tunis","photo oussema");
        /*
         //User
         //User u1 = new User ("Ben nasr", "Fatma", 22, 22345678,"fatmanaser@gmail.com","rue sculpture nabeul","photo fatima")
@@ -221,7 +224,7 @@ public class Pidev {
                                              
                                  
          /***********************event*************/
-                               
+                      ServiceEvent se = new ServiceEvent();        
       /*  ServiceEvent se = new ServiceEvent();
         ServiceNews sn = new ServiceNews();
         event e1 = new event("fifa","02/02/2020","02/03/2020","C:/image/img.png","fifa event",20,"meet");
@@ -238,6 +241,14 @@ public class Pidev {
         //sn.supprimerNews(1);
         //sn.modifierNews(n2);
              */
+     serviceInscription si = new serviceInscription();
+     event e2 = new event (5,"gta","14/02/2022","16/02/2022","C:/image/img.png","gta event",30,"reel");
+     si.ajouterInscription(e2, u2);
+        System.out.println(se.afficherEvents());
+      ServiceNews sn = new ServiceNews();
+       // System.out.println((int)(Math.random()*100));
+      //sn.RechercherParTitre(sn.recuperationEvent(u2),sn.recuperationStream(u2));
+      System.out.println(sn.RechercherParTitre("fif","frty"));
  
     }
     

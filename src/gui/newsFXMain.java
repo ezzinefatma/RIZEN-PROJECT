@@ -17,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import model.event;
 
 /**
  *
@@ -24,20 +25,16 @@ import javafx.stage.Stage;
  */
 public class newsFXMain extends Application {
     
-    @Override
-    public void start(Stage primaryStage) {
 
         
-        try {
-             Parent root = FXMLLoader.load(getClass().getResource("newsFXML.fxml"));
-            Scene scene = new Scene(root);
-            primaryStage.setTitle("Rizen News");
-            primaryStage.setScene(scene);
-            primaryStage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(newsFXMain.class.getName()).log(Level.SEVERE, null, ex);
-     
-    }}
+      @Override
+    public void start(Stage primaryStage) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("EventFXML.fxml"));
+       
+        primaryStage.setTitle("Hello World!");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+    }
 
     /**
      * @param args the command line arguments
@@ -45,5 +42,6 @@ public class newsFXMain extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+    
     
 }

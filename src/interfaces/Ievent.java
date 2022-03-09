@@ -14,4 +14,5 @@ public interface Ievent {
     public void ajouterEvent(event e);
     public void supprimerEvent(int id);
     public void modifierEvent(event e);
+    public List<event> afficherEvents();
 }

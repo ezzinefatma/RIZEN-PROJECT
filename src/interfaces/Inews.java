@@ -4,14 +4,16 @@
  */
 package interfaces;
 import java.util.List;
+import javafx.collections.ObservableList;
 import model.news;
 /**
  *
  * @author OUSSAMA
  */
 public interface Inews {
-    public List<news> afficherNews();
+    public ObservableList<news> afficherNews();
     public void ajouterNews(news n);
     public void supprimerNews(int id);
     public void modifierNews(news n);
+    public List<news> RechercherParTitre (String titre , String stream);
 }
