@@ -4,7 +4,7 @@
  */
 package services;
 
-import util.MaConnexion;
+import util.maConnexion;
 import interfaces.IWallet;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -21,7 +21,7 @@ import model.wallet;
  */
 public class ServiceWallet implements IWallet{
 
-    Connection cnx = MaConnexion.getInstance().getCnx();
+    Connection cnx = maConnexion.getInstance().getCnx();
 
     @Override
     public void ajouterwallet(wallet x) {

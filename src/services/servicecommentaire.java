@@ -12,7 +12,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import model.commentaire;
-import util.MaConnexion;
+import util.maConnexion;
 
 /**
  *
@@ -20,7 +20,7 @@ import util.MaConnexion;
  */
 public class servicecommentaire implements Icommentaire {
  //var
-    Connection cnx = MaConnexion.getInstance().getCnx();
+    Connection cnx = maConnexion.getInstance().getCnx();
 
     //afficher
 

@@ -14,14 +14,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import model.Panier;
-import util.MaConnexion;
+import util.maConnexion;
 
 /**
  *
  * @author MSI
  */
 public class ServicePanier implements Ipanier{
-Connection cnx = MaConnexion.getInstance().getCnx();
+Connection cnx = maConnexion.getInstance().getCnx();
     @Override
     public void ajouterpanier(Panier s) {
         String req = "insert into panier(id_prod,id_user,quantite) values(?,?,?)";

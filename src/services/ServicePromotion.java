@@ -14,14 +14,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import model.Promotion;
-import util.MaConnexion;
+import util.maConnexion;
 
 /**
  *
  * @author MSI
  */
 public class ServicePromotion  implements Ipromotion {
-Connection cnx = MaConnexion.getInstance().getCnx();
+Connection cnx = maConnexion.getInstance().getCnx();
 
     @Override
     public void ajouterpromotion(Promotion p) {

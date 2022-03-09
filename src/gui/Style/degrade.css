@@ -1,0 +1,7 @@
+.backgroundColor{
+      -fx-background-color: linear-gradient(to right,#000000, #9932cc);
+}
+
+.Courbe{
+      -fx-background-color: linear-gradient(to right,#190087, #6b00d7);
+}

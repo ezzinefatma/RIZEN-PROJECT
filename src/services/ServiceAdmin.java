@@ -15,10 +15,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import model.Role;
 import model.User;
 import static util.Pwd.getSHA;
 import static util.Pwd.toHexString;
-import util.MaConnexion;
+import util.maConnexion;
 
 /**
  *
@@ -26,13 +29,13 @@ import util.MaConnexion;
  */
 public class ServiceAdmin implements Iadmin {
     
-     Connection cnx = MaConnexion.getInstance().getCnx();
+     Connection cnx = maConnexion.getInstance().getCnx();
      
    @Override
     public boolean login(String email, String password) throws Exception {
          if (!email.isEmpty() && !password.isEmpty() ) {
             String requete = "SELECT password FROM user WHERE email = '" + email +"'";
-            Statement s = MaConnexion.getInstance().getCnx().createStatement();
+            Statement s = maConnexion.getInstance().getCnx().createStatement();
             ResultSet rs = s.executeQuery(requete);
                     if (rs.next()){
                        if( toHexString(getSHA(password)).equals(rs.getString("password")) )
@@ -57,11 +60,6 @@ public class ServiceAdmin implements Iadmin {
         } 
     }
     
-       /*@Override
-    public boolean login(String email, String password) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }*/
-    
 
     
     @Override
@@ -75,38 +73,77 @@ public class ServiceAdmin implements Iadmin {
         return false;
          }
     }
- @Override
-    public void ajouterUser(User u) {
+     @Override
+    public void UpdatePassword(String email, String password) throws Exception{
+       
+       String  pw = toHexString(getSHA(password));
+       
+       String sql= "UPDATE user SET password='"+ pw +"'"+"WHERE email='"+ email+"'";
+       PreparedStatement statement = cnx.prepareStatement(sql);
+       int rowsUpdated = statement.executeUpdate(sql);
+       if (rowsUpdated > 0) {
+             System.out.println("password updated successfully!");
+         }
+    }    
+   
+    public User getByEmail(String email ) {
+        
+        User u =new User();
+         String query = "SELECT * FROM user where `email`='"+email+"'";
+        
+        try {
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            
+            while (rs.next()) {                
+                
+                u=new User(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4), 
+                rs.getInt(5),rs.getInt(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getInt(11));
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        
+        return u;
+        
+    }
+   
+
+     @Override
+    public void addUser(User u) {
         
         try {
             
             String pw=toHexString(getSHA(u.getPassword()));
-            String Req = "INSERT INTO `user`(`nom_user`, `prenom_user`, `age`, `numero_tel`, `email`,`username`,`password`, `adresse`, `photo`,`statut_user`)"
-                    + "VALUES (?,?,?,?,?,?,?,?,?,?)";
+            String Req = "INSERT INTO `user`(`nom_user`, `prenom_user`, `age`, `numero_tel`, `adresse`,`email`,`password`)"
+                    + "VALUES (?,?,?,?,?,?,?)";
             try {
                 PreparedStatement ps = cnx.prepareStatement(Req);
                 ps.setString(1,u.getNom_user());
                 ps.setString(2, u.getPrenom_user());
                 ps.setInt(3, u.getAge());
                 ps.setInt(4, u.getNumero_tel());
-                ps.setString(5, u.getEmail());
-                ps.setString(6, u.getUsername());
+                ps.setString(5, u.getAdresse());
+                ps.setString(6, u.getEmail());
                 ps.setString(7, pw);
-                ps.setString(8, u.getAdresse());
-                ps.setString(9, u.getPhoto());
-                ps.setInt(10, u.getStatut());
+               
                 ps.execute();
                 System.out.println("Utlisateur ajouté avec succés");
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
         } catch (NoSuchAlgorithmException ex) {
-             Logger.getLogger(ServiceAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ServiceUser.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
+    
+ 
+
     @Override
-    public List<User> afficherUsers() {
+    public ObservableList<User> afficherUsers() {
          List<User> users = new ArrayList<>();
         
         String query = "SELECT * FROM user";
@@ -116,16 +153,15 @@ public class ServiceAdmin implements Iadmin {
             ResultSet rs = st.executeQuery(query);
             
             while (rs.next()) {                
-                users.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), 
-                rs.getInt(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getString(11),rs.getInt(12)));
+                 users.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4), 
+                rs.getInt(5),rs.getInt(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getInt(11)));
             }
             
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
         
-        
-        return users;
+        return FXCollections.observableList(users);
     }
 
     @Override
@@ -136,7 +172,7 @@ public class ServiceAdmin implements Iadmin {
            String pw=toHexString(getSHA(u.getPassword()));
            try {
                if (u.getNom_user()!= null) {
-                   String  query="UPDATE user SET `nom_user`=?,`prenom_user`=?,`age`=? ,`numero_tel`=?,`email`=?,`username`=?,`password`=?,`adresse`=?,`photo`=? WHERE `id_user`=?";
+                   String  query="UPDATE user SET `nom_user`=?,`prenom_user`=?,`age`=? ,`numero_tel`=?,`email`=?,`password`=?,`adresse`=?,`photo`=? WHERE `id_user`=?";
                    PreparedStatement pstm = cnx.prepareStatement(query);
                    pstm.setInt(10,u.getId_user());
                    pstm.setString(1,u.getNom_user());
@@ -144,7 +180,6 @@ public class ServiceAdmin implements Iadmin {
                    pstm.setInt(3, u.getAge());
                    pstm.setInt(4, u.getNumero_tel());
                    pstm.setString(5, u.getEmail());
-                   pstm.setString(6, u.getUsername());
                    pstm.setString(7, pw);
                    pstm.setString(8, u.getAdresse());
                    pstm.setString(9, u.getPhoto());
@@ -179,7 +214,7 @@ public class ServiceAdmin implements Iadmin {
                 u.setEmail(rs.getString("email"));
                 u.setAdresse(rs.getString("adresse"));
                 u.setPhoto(rs.getString("photo"));
-                u.setRole(rs.getString("role"));
+           
            
             }
        
@@ -201,7 +236,7 @@ public class ServiceAdmin implements Iadmin {
                 u.setEmail(rs.getString("email"));
                 u.setAdresse(rs.getString("adresse"));
                 u.setPhoto(rs.getString("photo"));
-                u.setRole(rs.getString("role"));
+          
            
             }
        
@@ -218,8 +253,8 @@ public class ServiceAdmin implements Iadmin {
         ResultSet rs = statement.executeQuery(sql);
      
        while(rs.next()){
-                users.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), 
-                rs.getInt(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getString(11),rs.getInt(12)));
+                users.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4), 
+                rs.getInt(5),rs.getInt(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getInt(11)));
           
             }
        return users; 
@@ -233,14 +268,51 @@ public class ServiceAdmin implements Iadmin {
         ResultSet rs = statement.executeQuery(sql);
      
        while(rs.next()){
-                 users.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), 
-                rs.getInt(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getString(11),rs.getInt(12)));
+                  users.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4), 
+                rs.getInt(5),rs.getInt(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getInt(11)));
             }
        return users; 
     }
 
    
-    
+    @Override
+             public int getIdbyMail(String email) throws SQLException {
+            PreparedStatement st = cnx.prepareStatement("select id_user from user where email=?");
+            st.setString(1, email);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("id_user"); 
+                           }
+        return 0;
+             }
+             
+    @Override
+             public int getId() throws SQLException  {
+            String sql="SELECT id_user FROM user ";
+            Statement statement = cnx.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery(sql);
+            while (rs.next()) {
+                int id =  rs.getInt("id_user"); 
+                return id;
+                           }
+        return 0;
+             }
+
+    @Override
+    public ObservableList<User> GetListUsers() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public ObservableList<Role> GetListRoles() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getFirstNamebyId(int idbyMail) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+   
       
     }
 

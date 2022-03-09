@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Fatma
@@ -15,85 +17,112 @@ package model;
 public class User {
     
     //VAR
-   
+    
+    private ArrayList<UserRole> listRoles = new ArrayList<>();
     private int id_user;
     private String nom_user;
     private String prenom_user;
+    private String genre;
     private int age;
     private int numero_tel;
-    private String email;
-    private String username;
-    private String password;
     private String adresse;
+    private String email;
+    private String password;
     private String photo;
-    private String role;
     private int statut_user;
     
     
     //CONSTRUCTEUR
 
+    
     public User() {}
 
-    public User(int id_user, String nom_user, String prenom_user, int age, int numero_tel, String email, String username , String password,String adresse, String photo, String role, int statut_user) {
+    
+    public User(int id_user, String nom_user, String prenom_user, int age, int numero_tel, String email, String username , String password,String adresse, String photo, int statut_user) {
         this.id_user = id_user;
         this.nom_user = nom_user;
         this.prenom_user = prenom_user;
         this.age = age;
         this.numero_tel = numero_tel;
         this.email = email;
-        this.username=username;
         this.password=password;
         this.adresse = adresse;
         this.photo = photo;
-        this.role = role;
+        this.statut_user = statut_user;
+    }
+
+    public User(int id_user, String nom_user, String prenom_user, String genre, int age, int numero_tel, String adresse, String email, String password, String photo, int statut_user) {
+        this.id_user = id_user;
+        this.nom_user = nom_user;
+        this.prenom_user = prenom_user;
+        this.genre = genre;
+        this.age = age;
+        this.numero_tel = numero_tel;
+        this.adresse = adresse;
+        this.email = email;
+        this.password = password;
+        this.photo = photo;
         this.statut_user = statut_user;
     }
 
   
 
-    public User(String nom_user, String prenom_user, int age, int numero_tel, String email, String username , String password, String adresse, String photo , int statut_user) {
+    public User(String nom_user, String prenom_user, int age, int numero_tel, String email, String password, String adresse, String photo , int statut_user) {
         this.nom_user = nom_user;
         this.prenom_user = prenom_user;
         this.age = age;
         this.numero_tel = numero_tel;
         this.email = email;
-        this.username=username;
         this.password=password;
         this.adresse = adresse;
         this.photo = photo;
         this.statut_user = statut_user;
     }
 
-    public User(int id_user, String nom_user, String prenom_user, int age, int numero_tel, String email, String username , String password, String adresse, String photo) {
+    public User(int id_user, String nom_user, String prenom_user, int age, int numero_tel, String email , String password, String adresse, String photo) {
         this.id_user = id_user;
         this.nom_user = nom_user;
         this.prenom_user = prenom_user;
         this.age = age;
         this.numero_tel = numero_tel;
         this.email = email;
-        this.username=username;
         this.password=password;
         this.adresse = adresse;
         this.photo = photo;
     }
 
-    public User(int id_user, String nom_user, String prenom_user, int age, int numero_tel, String email, String username, String password, String adresse, String photo, int statut_user) {
+    public User(int id_user, String nom_user, String prenom_user, int age, int numero_tel, String email, String password, String adresse, String photo, int statut_user) {
         this.id_user = id_user;
         this.nom_user = nom_user;
         this.prenom_user = prenom_user;
         this.age = age;
         this.numero_tel = numero_tel;
         this.email = email;
-        this.username = username;
         this.password = password;
         this.adresse = adresse;
         this.photo = photo;
         this.statut_user = statut_user;
     }
-    
-    
-    
-    //Getters & Setters 
+
+    public User(String nom_user, String prenom_user, int age, int numero_tel, String adresse,String email, String password) {
+        this.nom_user = nom_user;
+        this.prenom_user = prenom_user;
+        this.age = age;
+        this.numero_tel = numero_tel;
+        this.adresse = adresse;
+        this.email = email;
+        this.password = password;
+        
+    }
+
+    public ArrayList<UserRole> getListRoles() {
+        return listRoles;
+    }
+
+    //Getters & Setters
+    public void setListRoles(ArrayList<UserRole> listRoles) {
+        this.listRoles = listRoles;
+    }
 
     public int getId_user() {
         return id_user;
@@ -143,13 +172,7 @@ public class User {
         this.email = email;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
+   
 
     public String getPassword() {
         return password;
@@ -184,13 +207,15 @@ public class User {
         this.photo = photo;
     }
 
-    public String getRole() {
-        return role;
+    public String getGenre() {
+        return genre;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
+
+ 
 
     public int getStatut() {
         return statut_user;
@@ -206,9 +231,12 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" + "id_user=" + id_user + ", nom_user=" + nom_user + ", prenom_user=" + prenom_user + ", age=" + age + ", numero_tel=" + numero_tel + ", email=" + email + ", username=" + username + ", password=" + password + ", adresse=" + adresse + ", photo=" + photo + ", role=" + role + ", statut_user=" + statut_user + '}';
+        return " id_user=" + id_user + ", nom_user=" + nom_user + ", prenom_user=" + prenom_user + ",  age=" + age + ", numero_tel=" + numero_tel + ", adresse=" + adresse + ", email=" + email + ", statut_user=" + statut_user + '}';
     }
 
+  
+
+  
  
     
     

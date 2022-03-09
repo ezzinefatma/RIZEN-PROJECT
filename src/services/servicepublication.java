@@ -13,7 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import model.publication;
-import util.MaConnexion;
+import util.maConnexion;
 
 /**
  *
@@ -24,7 +24,7 @@ public  class servicepublication implements Ipublication{
 
 //var
    //var
-    Connection cnx = MaConnexion.getInstance().getCnx();
+    Connection cnx = maConnexion.getInstance().getCnx();
 
     public List<publication> afficherPublication() {
         List<publication> publications = new ArrayList<>();

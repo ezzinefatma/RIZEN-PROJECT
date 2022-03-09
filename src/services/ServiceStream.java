@@ -13,7 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import model.stream;
-import util.MaConnexion;
+import util.maConnexion;
 
 /**
  *
@@ -22,7 +22,7 @@ import util.MaConnexion;
 public class ServiceStream implements Istreaming{
     
     //var
-    Connection cnx = MaConnexion.getInstance().getCnx();
+    Connection cnx = maConnexion.getInstance().getCnx();
 
     @Override
     public void ajouterstream(stream s) {

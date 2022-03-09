@@ -24,7 +24,7 @@ public class RizenFXMain extends Application {
    @Override
     public void start(Stage stage) throws Exception {
     
-    Parent root = FXMLLoader.load(getClass().getResource("loginFXML.fxml"));
+    Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
     stage.initStyle(StageStyle.UNDECORATED);
    
     Scene scene = new Scene(root);

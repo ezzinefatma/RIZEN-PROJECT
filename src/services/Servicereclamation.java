@@ -4,7 +4,7 @@
  */
 package services;
 
-import util.MaConnexion;
+import util.maConnexion;
 import interfaces.Irec;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -24,7 +24,7 @@ import model.reclamation;
 public class Servicereclamation implements Irec {
     
     //var 
-        Connection cnx = MaConnexion.getInstance().getCnx();
+        Connection cnx = maConnexion.getInstance().getCnx();
 
 
     @Override

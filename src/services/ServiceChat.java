@@ -13,7 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import model.chat;
-import util.MaConnexion;
+import util.maConnexion;
 
 /**
  *
@@ -21,7 +21,7 @@ import util.MaConnexion;
  */
 public class ServiceChat implements Ichat{
      //var
-    Connection cnx = MaConnexion.getInstance().getCnx();
+    Connection cnx = maConnexion.getInstance().getCnx();
 
     @Override
     public void ajouterchat(chat c) {

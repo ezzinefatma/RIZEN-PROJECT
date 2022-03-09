@@ -13,14 +13,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import model.news;
-import util.MaConnexion;
+import util.maConnexion;
 
 /**
  *
  * @author OUSSAMA
  */
 public class ServiceNews implements Inews{
-      Connection cnx = MaConnexion.getInstance().getCnx();
+      Connection cnx = maConnexion.getInstance().getCnx();
       
 
     public List<news> afficherNews() {
